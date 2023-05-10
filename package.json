@@ -12,5 +12,10 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@vitest/browser": "^0.31.0",
+    "vitest": "^0.31.0",
+    "webdriverio": "^8.10.1"
   }
 }
