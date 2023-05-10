@@ -6,7 +6,7 @@ var app = express();
 
 app.use(express.static("."));
 
-var server = app.listen(3000, function() {
+var server = app.listen(3456, function() {
   var port = server.address().port;
   console.log("Server running on localhost:%s", port);
 });
