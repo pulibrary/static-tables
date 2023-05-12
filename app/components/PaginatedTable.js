@@ -1,6 +1,6 @@
 import { parse } from '/assets/js/csv-parse/sync.js';
 
-import Table from './Table.js'
+import Table from './Table.js';
 
 export default {
   name: 'PaginatedTable',
