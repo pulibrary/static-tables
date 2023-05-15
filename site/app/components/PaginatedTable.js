@@ -1,4 +1,4 @@
-import { parse } from '/assets/js/csv-parse/sync.js';
+import { parse } from '../../assets/js/csv-parse/sync.js';
 
 import Table from './Table.js'
 
