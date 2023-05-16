@@ -4,7 +4,7 @@ import express from "express";
 
 var app = express();
 
-app.use(express.static("."));
+app.use(express.static("./site"));
 
 var server = app.listen(3456, function() {
   var port = server.address().port;
