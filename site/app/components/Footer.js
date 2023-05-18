@@ -113,7 +113,7 @@ export default {
                   <img src="../../assets/icons/friends.svg">
                 </a>
               </li>
-              </li>
+              <li>
                 <span>© 2023 The Trustees of Princeton University</span>
               </li>
               <li>
