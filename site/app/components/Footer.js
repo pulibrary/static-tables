@@ -101,16 +101,16 @@ export default {
               </li>
               <li>
                 <a class="footer-icon" href="https://www.facebook.com/PULibrary">
-                  <img src="../assets/icons/facebook.svg">
+                  <img src="./assets/icons/facebook.svg">
                 </a>
                 <a class="footer-icon" href="http://twitter.com/PULibrary">
-                  <img src="../assets/icons/twitter.svg">
+                  <img src="./assets/icons/twitter.svg">
                 </a>
                 <a class="footer-icon" href="https://libguides.princeton.edu/usgovdocs">
-                  <img src="../assets/icons/princeton.svg">
+                  <img src="./assets/icons/princeton.svg">
                 </a>
                 <a class="footer-icon" href="">
-                  <img src="../assets/icons/friends.svg">
+                  <img src="./assets/icons/friends.svg">
                 </a>
               </li>
               <li>
