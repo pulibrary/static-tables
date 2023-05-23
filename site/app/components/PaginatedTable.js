@@ -95,10 +95,10 @@ export default {
       return this.filteredRows.length;
     },
     auctionHouseOptions() {
-      return [...new Map(this.rows.map(row => [row['Auction House'], row['Auction House']])).values()];
+      return [...new Map(this.rows.map(row => [row['Auction House'].trim(), row['Auction House']])).values()];
     },
     cityOptions() {
-      return [...new Map(this.rows.map(row => [row.City, row.City])).values()]
+      return [...new Map(this.rows.map(row => [row.City.trim(), row.City])).values()]
         .filter(c => c !== '');
     }
   },
