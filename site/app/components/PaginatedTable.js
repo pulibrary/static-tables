@@ -66,9 +66,6 @@ export default {
         this.page = 1;
       }
     },
-    getPage() {
-
-    },
     setPageSize(size) {
       this.pageSize = size;
     },
@@ -109,11 +106,11 @@ export default {
       const dateA = new Date(this.buildDateString(matchA));
       const dateB = new Date(this.buildDateString(matchB));
 
-      if (dateA.getTime() < dateB.getTime()) {
+      if (dateA < dateB) {
         return 1;
-      } else if (dateA.getTime() > dateB.getTime()) {
+      } else if (dateA > dateB) {
         return -1;
-      } else if (dateA.getTime() === dateB.getTime()) {
+      } else if (dateA === dateB) {
         return 0;
       } else {
         return -1
