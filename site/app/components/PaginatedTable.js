@@ -55,7 +55,8 @@ export default {
         .filter(row => row.Date.toLowerCase().indexOf(this.date.toLowerCase()) !== -1)
         .filter(row => row.Name.toLowerCase().indexOf(this.name.toLowerCase()) !== -1)
         .filter(row => this.auctionHouse === '' || row['Auction House'] === this.auctionHouse)
-        .filter(row => this.city === '' || row.City === this.city);
+        .filter(row => this.city === '' || row.City === this.city)
+        .sort(this.compareDates);
       const first = this.firstEntry() - 1;
       const last = this.lastEntry();
       this.filteredRowsCount = rows.length;
@@ -100,6 +101,51 @@ export default {
     cityOptions() {
       return [...new Map(this.rows.map(row => [row.City.trim(), row.City])).values()]
         .filter(c => c !== '');
+    },
+    compareDates(a, b) {
+      const regex = /(?:\?|([\d]{1,2}))?-?(?:\?|(\w{3}))?-?(\d{2})$/;
+      const matchA = a.Date.match(regex);
+      const matchB = b.Date.match(regex);
+      const dateA = new Date(this.buildDateString(matchA));
+      const dateB = new Date(this.buildDateString(matchB));
+
+      if (dateA.getTime() < dateB.getTime()) {
+        return 1;
+      } else if (dateA.getTime() > dateB.getTime()) {
+        return -1;
+      } else if (dateA.getTime() === dateB.getTime()) {
+        return 0;
+      } else {
+        return -1
+      }
+    },
+    buildDateString(matches) {
+      const months = {
+        Jan: "01",
+        Feb: "02",
+        Mar: "03",
+        Apr: "04",
+        May: "05",
+        Jun: "06",
+        Jul: "07",
+        Aug: "08",
+        Sep: "09",
+        Oct: "10",
+        Nov: "11",
+        Dec: "12"
+      };
+      if (matches === null) {
+        return '2000';
+      }
+      if (matches[3] === undefined) {
+        return '2000';
+      } else if (matches[2] === undefined) {
+        return `20${matches[3]}`
+      } else if (matches[1] === undefined) {
+        return `20${matches[3]}-${months[matches[2]]}`;
+      } else {
+        return `20${matches[3]}-${months[matches[2]]}-${matches[1]}`;
+      }
     }
   },
   created() {
@@ -115,7 +161,7 @@ export default {
   template: `
     <div class="container">
       <h2>Browse Sales Catalogs</h2>
-      <p>Questions about sale catalog holdings may be directed to the Marquand reference desk or <a href="mailto:marquand@princeton.edu">e-mail</a> with the specifics of what is needed. Many current sales catalogs from Christie's, Sotheby's, Bonham's, Phillips, Swann, William Doyle and others have been boxed by city and date and are mostly off-site out at ReCAP (browse below). These require 1-2 business days' notice at least and up to a week if many catalogs are needed. Marquand has many more catalogs from c. 1820s-1990s for more than 250 auction houses, both cataloged and un-cataloged. Book and coin sales, unless mixed content, are handled by Rare Books & Special Collections in Firestone Library.</p>
+      <p>Questions about sale catalog holdings may be directed to the Marquand reference desk or <a href="mailto:marquand@princeton.edu">e-mail</a> with the specifics of what is needed. Many current sales catalogs from Christie's, Sotheby's, Bonham's, Phillips, Swann, William Doyle and others have been boxed by city and date and are mostly off-site out at ReCAP (browse below). These require 1-2 business days' notice at least and up to a week if many catalogs are needed. Marquand has many more catalogs from c. 1820s-1990s for more than 250 auction houses, both cataloged and un-cataloged. Book and coin sales, unless mixed content, are handled by Special Collections in Firestone Library.</p>
         Displaying {{firstEntry()}} - {{lastEntry()}} of {{filteredRowsCount}}.
       <div>Show <a href="#" v-on:click="setPageSize(5)">5</a> | <a href="#" v-on:click="setPageSize(10)">10</a> | <a href="#" v-on:click="setPageSize(20)">20</a> | <a href="#" v-on:click="setPageSize(40)">40</a> | <a href="#" v-on:click="setPageSize(60)">60</a> results per page.</div>
       <div class="container">
