@@ -1,4 +1,4 @@
-export default class SortingUtilities {
+class SortingUtilities {
     static sortByDate(a,b){
       const regex = /(?:\?|([\d]{1,2}))?-?(?:\?|(\w{3}))?-?(\d{2})$/;
       const matchA = a.Date.match(regex);
@@ -47,3 +47,4 @@ export default class SortingUtilities {
     }
     
 }
+export default { sortByDate }
