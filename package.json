@@ -5,12 +5,17 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest --environment happy-dom",
     "start": "node server.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@vue/test-utils": "^2.4.3",
+    "happy-dom": "^13.3.1",
+    "vitest": "^1.2.1"
   }
 }
