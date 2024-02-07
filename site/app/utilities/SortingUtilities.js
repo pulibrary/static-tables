@@ -1,10 +1,10 @@
-class SortingUtilities {
-    static sortByDate(a,b){
+// class SortingUtilities {
+    export function sortByDate(a,b){
       const regex = /(?:\?|([\d]{1,2}))?-?(?:\?|(\w{3}))?-?(\d{2})$/;
       const matchA = a.Date.match(regex);
       const matchB = b.Date.match(regex);
-      const dateA = new Date(SortingUtilities.buildDateString(matchA));
-      const dateB = new Date(SortingUtilities.buildDateString(matchB));
+      const dateA = new Date(buildDateString(matchA));
+      const dateB = new Date(buildDateString(matchB));
 
       if (dateA < dateB) {
         return 1;
@@ -17,7 +17,7 @@ class SortingUtilities {
       }
     }
 
-    static buildDateString(matches) {
+    function buildDateString(matches) {
         const months = {
           Jan: "01",
           Feb: "02",
@@ -46,5 +46,4 @@ class SortingUtilities {
         }
     }
     
-}
-export default { sortByDate }
+// }

@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import SortingUtilities from "./SortingUtilities"
+import { sortByDate } from "./SortingUtilities"
 
 describe('SortingUtilities', () => {
     describe('sortByDate()', () => {
@@ -15,7 +15,7 @@ describe('SortingUtilities', () => {
             {Date: '11-17-Oct-22', name: 'Alfred Stieglitz, Georgia O\'Keefe, Juan Hamilton: Passage'}
            ];
 
-           expect(unsortedData.sort(SortingUtilities.sortByDate)).toEqual(sortedData);
+           expect(unsortedData.sort(sortByDate)).toEqual(sortedData);
         })
     })
 })
