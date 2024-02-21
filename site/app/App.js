@@ -1,6 +1,7 @@
 import Footer from './components/Footer.js';
 import Header from './components/Header.js';
 import PaginatedTable from './components/PaginatedTable.js';
+import DataSources from './configs/DataSources.js';
 import { sortByDate } from './utilities/SortingUtilities.js';
 
 export default {
@@ -12,7 +13,8 @@ export default {
   },
   data() {
     return {
-      sorterMethod: sortByDate
+      sorterMethod: sortByDate,
+      dataUrl: DataSources.marquand
     }
   },
   template: `
@@ -22,7 +24,10 @@ export default {
         <img :src="'./assets/images/marquand-banner_0.jpg'" class="img-fluid" width="1200" height="265" alt="geometric pattern" />
         <h2 class="bg-black text-white">Marquand Library of Art and Archaeology</h2>
       </div>
-      <PaginatedTable :sorter="sorterMethod"></PaginatedTable>
+      <PaginatedTable
+        :sorter="sorterMethod"
+        :dataUrl="dataUrl"
+      ></PaginatedTable>
     </div>
     <Footer></Footer>`
 }
