@@ -1,4 +1,4 @@
-import { parse } from '../../assets/js/csv-parse/sync.js';
+import { DataService } from '../services/DataService.js';
 
 import Table from './Table.js'
 
@@ -10,6 +10,10 @@ export default {
   props: {
     sorter: {
       type: Function
+    },
+    dataUrl: {
+      type: String,
+      required: true
     }
   },
   data() {
@@ -106,14 +110,8 @@ export default {
     },
   },
   created() {
-    fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vRJirkpoJFVLXjXLkA2pe70Q6sIS5WrpUjcJuvIW69BkYb9d-yQzypsBmyiOYzjQbrj01Pa8pgXJhLh/pub?output=csv")
-      .then(res => res.text())
-      .then(data => {
-        this.rows = parse(data, { columns: true });
-      })
-      .catch(err => {
-        console.log(err)
-      });
+    DataService.fetchData(this.dataUrl)
+      .then(data => this.rows = data);
   },
   template: `
     <div class="container">

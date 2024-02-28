@@ -7,3 +7,8 @@ Index of Marquand auction catalogs.
 1. Run: `npm install`
 2. Start a local server: `npm start`
 3. Visit: [localhost:3456](http://localhost:3456/)
+
+
+## Testing
+
+Run: `npm test`
