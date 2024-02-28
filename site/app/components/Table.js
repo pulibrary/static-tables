@@ -1,18 +1,14 @@
 export default {
   name: 'Table',
   props: {
-    rows: Array
+    rows: Array,
+    columns: Array,
   },
   template: `
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Date</th>
-          <th scope="col">Auction House</th>
-          <th scope="col">City</th>
-          <th scope="col">Sale</th>
-          <th scope="col">Name</th>
-          <th scope="col">Notes</th>
+          <th v-for="column in columns" scope="col">{{column}}</th>
         </tr>
       </thead>
       <tbody>
