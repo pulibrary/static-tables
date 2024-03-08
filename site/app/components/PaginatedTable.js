@@ -150,7 +150,7 @@ export default {
           </div>
         </form>
       </div>
-      <Table :columns="['Date', 'Auction House', 'City', 'Sale', 'Name', 'Notes']" :rows="filteredRows"></Table>
+      <Table :columns="[['Date', 'Date'], ['Auction House', 'Auction House'], ['City', 'City'], ['Sale', 'Sale #'], ['Name', 'Name'], ['Notes', 'Catalog']]" :rows="filteredRows"></Table>
       <div class="container">
         <div class="btn-group">
           <button v-if="page !== 1" v-on:click="setPage(1)" type="button" class="btn btn-outline-dark">&lt;&lt; first</button>
