@@ -1,6 +1,7 @@
 import Footer from './components/Footer.js';
 import Header from './components/Header.js';
 import PaginatedTable from './components/PaginatedTable.js';
+import DataColumns from './configs/DataColumns.js';
 import DataSources from './configs/DataSources.js';
 import { sortByDate } from './utilities/SortingUtilities.js';
 
@@ -14,7 +15,8 @@ export default {
   data() {
     return {
       sorterMethod: sortByDate,
-      dataUrl: DataSources.marquand
+      dataUrl: DataSources.marquand,
+      dataColumns: DataColumns.marquand
     }
   },
   template: `
@@ -27,6 +29,7 @@ export default {
       <PaginatedTable
         :sorter="sorterMethod"
         :dataUrl="dataUrl"
+        :dataColumns="dataColumns"
       ></PaginatedTable>
     </div>
     <Footer></Footer>`
