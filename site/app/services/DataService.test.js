@@ -1,7 +1,7 @@
 import { describe, test, expect, vi } from 'vitest';
 import { DataService } from './DataService';
 
-global.fetch = vi.fn();
+global.fetch = vi.fn(); 
 
 describe('DataService', () => {
   describe('fetchData()', () => {

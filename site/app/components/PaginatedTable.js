@@ -52,16 +52,16 @@ export default {
         this.filterRows();
       }
     },
-    date(oldDate, newDate) {
+    date() {
       this.filterRows();
     },
-    name(oldName, newName) {
+    name() {
       this.filterRows();
     },
-    auctionHouse(oldAH, newAH) {
+    auctionHouse() {
       this.filterRows();
     },
-    city(oldCity, newCity) {
+    city() {
       this.filterRows();
     }
   },
