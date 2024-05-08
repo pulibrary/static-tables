@@ -1655,7 +1655,7 @@ Buffer.prototype.writeInt32BE = function writeInt32BE (value, offset, noAssert) 
   return offset + 4
 };
 
-function checkIEEE754 (buf, value, offset, ext, max, min) {
+function checkIEEE754 (buf, value, offset, ext) {
   if (offset + ext > buf.length) throw new RangeError('Index out of range')
   if (offset < 0) throw new RangeError('Index out of range')
 }
@@ -1807,7 +1807,7 @@ Buffer.prototype.fill = function fill (val, start, end, encoding) {
 // HELPER FUNCTIONS
 // ================
 
-var INVALID_BASE64_RE = /[^+\/0-9A-Za-z-_]/g;
+var INVALID_BASE64_RE = /[^+0-9A-Za-z-_]/g;
 
 function base64clean (str) {
   // Node strips out invalid characters like \n and \t from the string, base64-js does not
@@ -1950,7 +1950,7 @@ function blitBuffer (src, dst, offset, length) {
 }
 
 function isnan (val) {
-  return val !== val // eslint-disable-line no-self-compare
+  return val !== val  
 }
 
 
