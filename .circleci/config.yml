@@ -3,9 +3,25 @@ version: 2.1
 orbs:
   node: circleci/node@5.2
 
+jobs:
+  lint:
+      working_directory: ~/project
+      docker:
+        - image: cimg/node:20.11.0
+      steps:
+        - checkout
+        - node/install:
+            node-version: '20.11.0'
+        - node/install-packages:
+            pkg-manager: npm
+        - run:
+            name: Lint
+            command: npm run lint
+
 workflows:
   test:
     jobs:
       - node/test:
-          version: '18.19.0'
+          version: '20.11.0'
           pkg-manager: npm
+      - lint
