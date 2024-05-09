@@ -5,7 +5,7 @@ import DataColumns from './configs/DataColumns.js';
 import DataSources from './configs/DataSources.js';
 import DataTableDescription from './configs/DataTableDescription.js';
 import DataTableTitle from './configs/DataTableTitle.js';
-import DataTextFilters from './configs/DataFilters.js';
+import DataTextFilters from './configs/DataTextFilters.js';
 import { sortByDate } from './utilities/SortingUtilities.js';
 import DataSelectFilters from './configs/DataSelectFilters.js';
 

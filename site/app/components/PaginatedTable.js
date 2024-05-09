@@ -177,13 +177,9 @@ export default {
       <div class="container">
         <form>
           <div class="row">
-            <div class="col">
-              <label for="date" class="form-label">Date</label>
-              <input v-model="date" id="date" type="text" class="form-control" aria-label="Date to filter by">
-            </div>
-            <div class="col">
-              <label for="name" class="form-label">Name</label>
-              <input v-model="name" id="name" type="text" class="form-control" aria-label="Name of auction">
+            <div v-for="filter in dataTextFilters" class="col">
+              <label :for=filter.id class="form-label">{{filter.name}}</label>
+              <input v-model=filter.id :id=filter.id :type=filter.type class="form-control" :aria-label=filter.aria_label>
             </div>
             <div class="col">
               <label for="auction-house" class="form-label">Auction House</label>
