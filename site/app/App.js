@@ -5,8 +5,9 @@ import DataColumns from './configs/DataColumns.js';
 import DataSources from './configs/DataSources.js';
 import DataTableDescription from './configs/DataTableDescription.js';
 import DataTableTitle from './configs/DataTableTitle.js';
-import DataFilters from './configs/DataFilters.js';
+import DataTextFilters from './configs/DataFilters.js';
 import { sortByDate } from './utilities/SortingUtilities.js';
+import DataSelectFilters from './configs/DataSelectFilters.js';
 
 export default {
   name: 'App',
@@ -22,7 +23,8 @@ export default {
       dataColumns: DataColumns.marquand,
       dataTableDescription: DataTableDescription.marquand,
       dataTableTitle: DataTableTitle.marquand,
-      dataFilters: DataFilters.marquand
+      dataTextFilters: DataTextFilters.marquand,
+      dataSelectFilters: DataSelectFilters.marquand
     };
   },
   template: `
@@ -38,7 +40,8 @@ export default {
         :dataColumns="dataColumns"
         :dataTableDescription="dataTableDescription"
         :dataTableTitle="dataTableTitle"
-        :dataFilters="dataFilters"
+        :dataTextFilters="dataTextFilters"
+        :dataSelectFilters="dataSelectFilters"
       ></PaginatedTable>
     </div>
     <Footer></Footer>`

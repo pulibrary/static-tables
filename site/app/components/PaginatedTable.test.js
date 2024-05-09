@@ -3,6 +3,8 @@ import { mount } from '@vue/test-utils';
 import PaginatedTable from './PaginatedTable';
 import { sortByDate } from '../utilities/SortingUtilities.js';
 import DataColumns from '../configs/DataColumns.js';
+import DataTextFilters from '../configs/DataTextFilters.js';
+import DataSelectFilters from '../configs/DataSelectFilters.js';
 
 describe('PaginatedTable', () => {
   test('table title', () => {
@@ -35,7 +37,8 @@ describe('PaginatedTable', () => {
       props: {
         dataUrl: 'http://www.example.com/',
         dataColumns: [],
-        sorter: sortByDate
+        sorter: sortByDate,
+        dataTextFilters: DataTextFilters.marquand
       }
     });
     wrapper.get('form');
@@ -52,7 +55,8 @@ describe('PaginatedTable', () => {
       props: {
         dataUrl: 'http://www.example.com/',
         dataColumns: [],
-        sorter: sortByDate
+        sorter: sortByDate,
+        dataTextFilters: DataTextFilters.marquand
       }
     });
     wrapper.get('form');
@@ -78,7 +82,8 @@ describe('PaginatedTable', () => {
       props: {
         dataUrl: 'https://www.example.com',
         dataColumns: [],
-        sorter: sortByDate
+        sorter: sortByDate,
+        dataTextFilters: DataTextFilters.marquand
       }
     });
     wrapper.setData({
@@ -140,7 +145,8 @@ describe('PaginatedTable', () => {
       props: {
         dataUrl: 'https://www.example.com',
         dataColumns: DataColumns.marquand,
-        sorter: sortByDate
+        sorter: sortByDate,
+        dataTextFilters: DataTextFilters.marquand
       }
     });
     wrapper.setData({
@@ -207,7 +213,8 @@ describe('PaginatedTable', () => {
       props: {
         dataUrl: 'https://www.example.com',
         dataColumns: DataColumns.marquand,
-        sorter: sortByDate
+        sorter: sortByDate,
+        dataTextFilters: DataTextFilters.marquand
       }
     });
     wrapper.setData({
@@ -279,7 +286,8 @@ describe('PaginatedTable', () => {
       props: {
         dataUrl: 'https://www.example.com',
         dataColumns: DataColumns.marquand,
-        sorter: sortByDate
+        sorter: sortByDate,
+        dataTextFilters: DataTextFilters.marquand
       }
     });
     wrapper.setData({

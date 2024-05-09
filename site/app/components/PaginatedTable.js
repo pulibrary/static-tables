@@ -40,7 +40,14 @@ export default {
         return '';
       }
     },
-    dataFilters: {
+    dataTextFilters: {
+      type: Array,
+      required: true,
+      default() {
+        return [];
+      }
+    },
+    dataSelectFilters: {
       type: Array,
       required: true,
       default() {
