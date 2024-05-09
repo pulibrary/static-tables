@@ -1,11 +1,13 @@
 import { DataService } from '../services/DataService.js';
 
 import Table from './Table.js';
+import TableDescription from './TableDescription.js';
 
 export default {
   name: 'PaginatedTable',
   components: {
-    Table
+    Table,
+    TableDescription
   },
   props: {
     sorter: {
@@ -20,6 +22,13 @@ export default {
       required: true,
       default() {
         return [''];
+      }
+    },
+    dataTableDescription: {
+      type: String,
+      required: false,
+      default() {
+        return '';
       }
     }
   },
@@ -137,12 +146,7 @@ export default {
   },
   template: `
     <div class="container">
-      <div class="table-title">
-        <h2>Browse Sales Catalogs</h2>
-      </div>
-      <div class="description">
-        <p>Questions about sale catalog holdings may be directed to a Marquand staff member in Firestone or <a href="mailto:marquand@princeton.edu">e-mail</a> with the specifics of what is needed. Many current sales catalogs from Christie's, Sotheby's, Bonham's, Phillips, Swann, William Doyle and others have been boxed by city and date and are mostly off-site out at ReCAP (browse below). These require 1-2 business days' notice at least and up to a week if many catalogs are needed. Marquand has many more catalogs from c. 1820s-1990s for more than 250 auction houses, both cataloged and un-cataloged. Book and coin sales, unless mixed content, are handled by Special Collections in Firestone Library.</p>
-      </div>
+      <TableDescription :description="dataTableDescription"></TableDescription>
         Displaying {{firstEntry()}} - {{lastEntry()}} of {{filteredRowsCount}}.
       <div class="paging">Show <a href="#" v-on:click="setPageSize(5)">5</a> | <a href="#" v-on:click="setPageSize(10)">10</a> | <a href="#" v-on:click="setPageSize(20)">20</a> | <a href="#" v-on:click="setPageSize(40)">40</a> | <a href="#" v-on:click="setPageSize(60)">60</a> results per page.</div>
       <div class="container">
