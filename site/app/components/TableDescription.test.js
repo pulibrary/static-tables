@@ -9,7 +9,7 @@ describe('TableDescription', () => {
         description: 'Foo directed to a Marquand staff member'
       }
     });
-    const title = wrapper.get('.description');
-    expect(title.text()).include('directed to a Marquand staff member');
+    const description = wrapper.get('.description');
+    expect(description.text()).include('directed to a Marquand staff member');
   });
 });

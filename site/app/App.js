@@ -4,6 +4,7 @@ import PaginatedTable from './components/PaginatedTable.js';
 import DataColumns from './configs/DataColumns.js';
 import DataSources from './configs/DataSources.js';
 import DataTableDescription from './configs/DataTableDescription.js';
+import DataTableTitle from './configs/DataTableTitle.js';
 import DataFilters from './configs/DataFilters.js';
 import { sortByDate } from './utilities/SortingUtilities.js';
 
@@ -20,6 +21,7 @@ export default {
       dataUrl: DataSources.marquand,
       dataColumns: DataColumns.marquand,
       dataTableDescription: DataTableDescription.marquand,
+      dataTableTitle: DataTableTitle.marquand,
       dataFilters: DataFilters.marquand
     };
   },
@@ -35,6 +37,7 @@ export default {
         :dataUrl="dataUrl"
         :dataColumns="dataColumns"
         :dataTableDescription="dataTableDescription"
+        :dataTableTitle="dataTableTitle"
         :dataFilters="dataFilters"
       ></PaginatedTable>
     </div>
