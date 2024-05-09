@@ -1,5 +1,36 @@
+import Table from './Table.js';
+
 export default {
   name: 'Filter',
+  components: {
+    Table
+  },
+  props: {
+    dataColumns: {
+      type: Array,
+      required: true,
+      default() {
+        return [''];
+      }
+    }
+  },
+  data() {
+    return {
+      auctionHouse: '',
+      date: '',
+      name: '',
+      city: '',
+      rows: [],
+      filteredRows: []
+    };
+  },
+  watch: {
+    rows(oldRows, newRows) {
+      if (newRows) {
+        this.filterRows();
+      }
+    }
+  },
   methods: {
     auctionHouseOptions() {
       return [
@@ -10,6 +41,41 @@ export default {
           ])
         ).values()
       ];
+    },
+    cityOptions() {
+      return [
+        ...new Map(this.rows.map(row => [row.City.trim(), row.City])).values()
+      ].filter(c => c !== '');
+    },
+    filterRows() {
+      let rows = this.rows
+        .filter(
+          row => row.Date.toLowerCase().indexOf(this.date.toLowerCase()) !== -1
+        )
+        .filter(
+          row => row.Name.toLowerCase().indexOf(this.name.toLowerCase()) !== -1
+        )
+        .filter(
+          row =>
+            this.auctionHouse === '' ||
+            row['Auction House'] === this.auctionHouse
+        )
+        .filter(row => this.city === '' || row.City === this.city)
+        .sort(this.sorter);
+      const first = this.firstEntry() - 1;
+      const last = this.lastEntry();
+      this.filteredRowsCount = rows.length;
+      this.filteredRows = rows.slice(first, last);
+
+      if (this.page > this.lastPage()) {
+        this.page = 1;
+      }
+    },
+    firstEntry() {
+      return (this.page - 1) * this.pageSize + 1;
+    },
+    lastEntry() {
+      return this.page * this.pageSize;
     }
   },
   template: `
@@ -44,5 +110,6 @@ export default {
       </div>
     </form>
   </div>
+  <Table :columns="dataColumns" :rows="filteredRows"></Table>
   `
 };
