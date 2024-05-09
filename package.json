@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "format": "prettier . --write",
-    "lint": "eslint --fix --ext .ts,.js,.vue --fix src",
+    "lint": "eslint -c eslint.config.js",
     "prepare": "simple-git-hooks",
     "start": "node server.js",
     "test": "vitest --environment happy-dom"
