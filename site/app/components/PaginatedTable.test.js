@@ -22,7 +22,8 @@ describe('PaginatedTable', () => {
       props: {
         dataUrl: 'http://www.example.com/',
         dataColumns: [],
-        sorter: sortByDate
+        sorter: sortByDate,
+        dataTableDescription: 'directed to a Marquand staff member'
       }
     });
     const title = wrapper.get('.description');
