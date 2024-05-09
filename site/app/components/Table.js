@@ -2,7 +2,7 @@ export default {
   name: 'Table',
   props: {
     rows: Array,
-    columns: Array,
+    columns: Array
   },
   template: `
     <table class="table">
@@ -17,4 +17,4 @@ export default {
         </tr>
       </tbody>
     </table>`
-  }
+};
