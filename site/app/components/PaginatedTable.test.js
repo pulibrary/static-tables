@@ -10,11 +10,12 @@ describe('PaginatedTable', () => {
       props: {
         dataUrl: 'http://www.example.com/',
         dataColumns: [],
-        sorter: sortByDate
+        sorter: sortByDate,
+        dataTableTitle: 'Any old title'
       }
     });
     const title = wrapper.get('.table-title');
-    expect(title.text()).toEqual('Browse Sales Catalogs');
+    expect(title.text()).toEqual('Any old title');
   });
 
   test('table description', () => {
@@ -26,8 +27,8 @@ describe('PaginatedTable', () => {
         dataTableDescription: 'directed to a Marquand staff member'
       }
     });
-    const title = wrapper.get('.description');
-    expect(title.text()).include('directed to a Marquand staff member');
+    const description = wrapper.get('.description');
+    expect(description.text()).include('directed to a Marquand staff member');
   });
   test('form labels', () => {
     const wrapper = mount(PaginatedTable, {

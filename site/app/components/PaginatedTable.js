@@ -2,12 +2,14 @@ import { DataService } from '../services/DataService.js';
 
 import Table from './Table.js';
 import TableDescription from './TableDescription.js';
+import TableTitle from './TableTitle.js';
 
 export default {
   name: 'PaginatedTable',
   components: {
     Table,
-    TableDescription
+    TableDescription,
+    TableTitle
   },
   props: {
     sorter: {
@@ -25,6 +27,13 @@ export default {
       }
     },
     dataTableDescription: {
+      type: String,
+      required: false,
+      default() {
+        return '';
+      }
+    },
+    dataTableTitle: {
       type: String,
       required: false,
       default() {
@@ -153,9 +162,7 @@ export default {
   },
   template: `
     <div class="container">
-      <div class="table-title">
-        <h2>Browse Sales Catalogs</h2>
-      </div>
+      <TableTitle :title="dataTableTitle"></TableTitle>
       <TableDescription :description="dataTableDescription"></TableDescription>
       Displaying {{firstEntry()}} - {{lastEntry()}} of {{filteredRowsCount}}.
 
