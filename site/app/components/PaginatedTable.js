@@ -30,6 +30,13 @@ export default {
       default() {
         return '';
       }
+    },
+    dataFilters: {
+      type: Array,
+      required: true,
+      default() {
+        return [];
+      }
     }
   },
   data() {
