@@ -3,6 +3,7 @@ import Header from './components/Header.js';
 import PaginatedTable from './components/PaginatedTable.js';
 import DataColumns from './configs/DataColumns.js';
 import DataSources from './configs/DataSources.js';
+import DataTableDescription from './configs/DataTableDescription.js';
 import { sortByDate } from './utilities/SortingUtilities.js';
 
 export default {
@@ -16,8 +17,9 @@ export default {
     return {
       sorterMethod: sortByDate,
       dataUrl: DataSources.marquand,
-      dataColumns: DataColumns.marquand
-    }
+      dataColumns: DataColumns.marquand,
+      dataTableDescription: DataTableDescription.marquand
+    };
   },
   template: `
     <Header></Header>
@@ -30,7 +32,8 @@ export default {
         :sorter="sorterMethod"
         :dataUrl="dataUrl"
         :dataColumns="dataColumns"
+        :dataTableDescription="dataTableDescription"
       ></PaginatedTable>
     </div>
     <Footer></Footer>`
-}
+};

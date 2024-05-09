@@ -1,11 +1,13 @@
 import { DataService } from '../services/DataService.js';
 
-import Table from './Table.js'
+import Table from './Table.js';
+import TableDescription from './TableDescription.js';
 
 export default {
   name: 'PaginatedTable',
   components: {
-    Table
+    Table,
+    TableDescription
   },
   props: {
     sorter: {
@@ -19,8 +21,15 @@ export default {
       type: Array,
       required: true,
       default() {
-        return [""]
-      },
+        return [''];
+      }
+    },
+    dataTableDescription: {
+      type: String,
+      required: false,
+      default() {
+        return '';
+      }
     }
   },
   data() {
@@ -68,9 +77,17 @@ export default {
   methods: {
     filterRows() {
       let rows = this.rows
-        .filter(row => row.Date.toLowerCase().indexOf(this.date.toLowerCase()) !== -1)
-        .filter(row => row.Name.toLowerCase().indexOf(this.name.toLowerCase()) !== -1)
-        .filter(row => this.auctionHouse === '' || row['Auction House'] === this.auctionHouse)
+        .filter(
+          row => row.Date.toLowerCase().indexOf(this.date.toLowerCase()) !== -1
+        )
+        .filter(
+          row => row.Name.toLowerCase().indexOf(this.name.toLowerCase()) !== -1
+        )
+        .filter(
+          row =>
+            this.auctionHouse === '' ||
+            row['Auction House'] === this.auctionHouse
+        )
         .filter(row => this.city === '' || row.City === this.city)
         .sort(this.sorter);
       const first = this.firstEntry() - 1;
@@ -97,7 +114,7 @@ export default {
       const max = lastPage <= this.page + 4 ? lastPage : this.page + 4;
       const length = max - min + 1;
 
-      return Array.from({length: length}, (x, i) => i + min);
+      return Array.from({ length: length }, (x, i) => i + min);
     },
     firstEntry() {
       return (this.page - 1) * this.pageSize + 1;
@@ -109,22 +126,32 @@ export default {
       return this.filteredRows.length;
     },
     auctionHouseOptions() {
-      return [...new Map(this.rows.map(row => [row['Auction House'].trim(), row['Auction House']])).values()];
+      return [
+        ...new Map(
+          this.rows.map(row => [
+            row['Auction House'].trim(),
+            row['Auction House']
+          ])
+        ).values()
+      ];
     },
     cityOptions() {
-      return [...new Map(this.rows.map(row => [row.City.trim(), row.City])).values()]
-        .filter(c => c !== '');
-    },
+      return [
+        ...new Map(this.rows.map(row => [row.City.trim(), row.City])).values()
+      ].filter(c => c !== '');
+    }
   },
   created() {
-    DataService.fetchData(this.dataUrl)
-      .then(data => this.rows = data);
+    DataService.fetchData(this.dataUrl).then(data => (this.rows = data));
   },
   template: `
     <div class="container">
-      <h2>Browse Sales Catalogs</h2>
-      <p>Questions about sale catalog holdings may be directed to a Marquand staff member in Firestone or <a href="mailto:marquand@princeton.edu">e-mail</a> with the specifics of what is needed. Many current sales catalogs from Christie's, Sotheby's, Bonham's, Phillips, Swann, William Doyle and others have been boxed by city and date and are mostly off-site out at ReCAP (browse below). These require 1-2 business days' notice at least and up to a week if many catalogs are needed. Marquand has many more catalogs from c. 1820s-1990s for more than 250 auction houses, both cataloged and un-cataloged. Book and coin sales, unless mixed content, are handled by Special Collections in Firestone Library.</p>
-        Displaying {{firstEntry()}} - {{lastEntry()}} of {{filteredRowsCount}}.
+      <div class="table-title">
+        <h2>Browse Sales Catalogs</h2>
+      </div>
+      <TableDescription :description="dataTableDescription"></TableDescription>
+      Displaying {{firstEntry()}} - {{lastEntry()}} of {{filteredRowsCount}}.
+
       <div class="paging">Show <a href="#" v-on:click="setPageSize(5)">5</a> | <a href="#" v-on:click="setPageSize(10)">10</a> | <a href="#" v-on:click="setPageSize(20)">20</a> | <a href="#" v-on:click="setPageSize(40)">40</a> | <a href="#" v-on:click="setPageSize(60)">60</a> results per page.</div>
       <div class="container">
         <form>
@@ -172,4 +199,4 @@ export default {
         </div>
       </div>
     </div>`
-}
+};
