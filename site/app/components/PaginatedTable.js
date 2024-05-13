@@ -3,13 +3,15 @@ import { DataService } from '../services/DataService.js';
 import Table from './Table.js';
 import TableDescription from './TableDescription.js';
 import TableTitle from './TableTitle.js';
+import SelectFilter from './SelectFilter.js';
 
 export default {
   name: 'PaginatedTable',
   components: {
     Table,
     TableDescription,
-    TableTitle
+    TableTitle,
+    SelectFilter
   },
   props: {
     sorter: {
@@ -83,9 +85,6 @@ export default {
     name() {
       this.filterRows();
     },
-    auctionHouse() {
-      this.filterRows();
-    },
     city() {
       this.filterRows();
     }
@@ -141,11 +140,12 @@ export default {
     totalEntries() {
       return this.filteredRows.length;
     },
-    auctionHouseOptions() {
-      const config = this.dataFilters.find(
-        filter => filter.id === 'auction-house'
-      );
-      return config ? config.options_generator(this.rows) : [];
+    auctionHouseConfig() {
+      return this.dataFilters.find(filter => filter.id === 'auction-house');
+    },
+    handleAuctionHouseChange(value) {
+      this.auctionHouse = value;
+      this.filterRows();
     },
     cityOptions() {
       const config = this.dataFilters.find(filter => filter.id === 'city');
@@ -177,11 +177,7 @@ export default {
               <input v-model="name" id="name" type="text" class="form-control" aria-label="Name of auction">
             </div>
             <div class="col">
-              <label for="auction-house" class="form-label">Auction House</label>
-              <select v-model="auctionHouse" id="auction-house" class="form-select" aria-label="Auction House to filter by">
-                <option selected value="">- Any -</option>
-                <option v-for="ah in auctionHouseOptions()" :value="ah">{{ah}}</option>
-              </select>
+              <SelectFilter :config="auctionHouseConfig()" :rows="rows" @selected="handleAuctionHouseChange"></SelectFilter>
             </div>
             <div class="col">
               <label for="city" class="form-label">City</label>
