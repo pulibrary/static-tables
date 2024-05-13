@@ -30,8 +30,13 @@ export default {
     <Header :title="dataHeaderTitle"></Header>
     <div class="container">
       <div class="container">
+<<<<<<< HEAD
         <img :src="'./assets/images/marquand-banner_0.jpg'" class="img-fluid" width="1200" height="265" alt="geometric pattern" />
         <h2 class="page-title bg-black text-white">{{ dataPageTitle }}</h2>
+=======
+        <img :src="'./app/assets/images/marquand-banner_0.jpg'" class="img-fluid" width="1200" height="265" alt="geometric pattern" />
+        <h2 class="bg-black text-white">Marquand Library of Art and Archaeology</h2>
+>>>>>>> d8bf48a (Moved assets and using port 5173)
       </div>
       <PaginatedTable
         :sorter="sorterMethod"
