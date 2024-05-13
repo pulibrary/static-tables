@@ -143,17 +143,20 @@ export default {
     },
     auctionHouseOptions() {
       return [
-        ...new Map(
-          this.rows.map(row => [
-            row['Auction House'].trim(),
-            row['Auction House']
-          ])
-        ).values()
+        ...new Set(
+          this.rows.map(row => {
+            return row['Auction House'].trim();
+          })
+        )
       ];
     },
     cityOptions() {
       return [
-        ...new Map(this.rows.map(row => [row.City.trim(), row.City])).values()
+        ...new Set(
+          this.rows.map(row => {
+            return row.City.trim();
+          })
+        )
       ].filter(c => c !== '');
     }
   },
