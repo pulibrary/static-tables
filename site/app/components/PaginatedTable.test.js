@@ -11,7 +11,8 @@ describe('PaginatedTable', () => {
         dataUrl: 'http://www.example.com/',
         dataColumns: [],
         sorter: sortByDate,
-        dataTableTitle: 'Any old title'
+        dataTableTitle: 'Any old title',
+        dataFilters: []
       }
     });
     const title = wrapper.get('.table-title');
@@ -24,7 +25,8 @@ describe('PaginatedTable', () => {
         dataUrl: 'http://www.example.com/',
         dataColumns: [],
         sorter: sortByDate,
-        dataTableDescription: 'directed to a Marquand staff member'
+        dataTableDescription: 'directed to a Marquand staff member',
+        dataFilters: []
       }
     });
     const description = wrapper.get('.description');
@@ -35,7 +37,8 @@ describe('PaginatedTable', () => {
       props: {
         dataUrl: 'http://www.example.com/',
         dataColumns: [],
-        sorter: sortByDate
+        sorter: sortByDate,
+        dataFilters: []
       }
     });
     wrapper.get('form');
@@ -52,7 +55,8 @@ describe('PaginatedTable', () => {
       props: {
         dataUrl: 'http://www.example.com/',
         dataColumns: [],
-        sorter: sortByDate
+        sorter: sortByDate,
+        dataFilters: []
       }
     });
     wrapper.get('form');
@@ -78,7 +82,8 @@ describe('PaginatedTable', () => {
       props: {
         dataUrl: 'https://www.example.com',
         dataColumns: [],
-        sorter: sortByDate
+        sorter: sortByDate,
+        dataFilters: []
       }
     });
     wrapper.setData({
@@ -140,7 +145,8 @@ describe('PaginatedTable', () => {
       props: {
         dataUrl: 'https://www.example.com',
         dataColumns: DataColumns.marquand,
-        sorter: sortByDate
+        sorter: sortByDate,
+        dataFilters: []
       }
     });
     wrapper.setData({
@@ -207,7 +213,8 @@ describe('PaginatedTable', () => {
       props: {
         dataUrl: 'https://www.example.com',
         dataColumns: DataColumns.marquand,
-        sorter: sortByDate
+        sorter: sortByDate,
+        dataFilters: []
       }
     });
     wrapper.setData({
@@ -279,7 +286,8 @@ describe('PaginatedTable', () => {
       props: {
         dataUrl: 'https://www.example.com',
         dataColumns: DataColumns.marquand,
-        sorter: sortByDate
+        sorter: sortByDate,
+        dataFilters: []
       }
     });
     wrapper.setData({
