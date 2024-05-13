@@ -1,3 +1,5 @@
+import Papa from 'papaparse';
+
 export class DataService {
   static fetchData(url, callback) {
     Papa.parse(url, {

@@ -1,4 +1,4 @@
-import { describe, test, expect, vi } from 'vitest';
+import { describe, test, expect, vi, beforeAll } from 'vitest';
 import { DataService } from './DataService';
 
 global.fetch = vi.fn();
@@ -51,11 +51,11 @@ describe('DataService', () => {
         return { text: () => new Promise(resolve => resolve(data)) };
       }
 
-      fetch.mockResolvedValue(createFetchResponse(csv));
+      const server = setupServer(...restHandlers);
 
-      const catalogs = await DataService.fetchData('www.example.com');
+      beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
 
-      expect(fetch).toHaveBeenCalledWith('www.example.com');
+      const callback = vi.fn();
 
       expect(catalogs).toEqual(expected);
     });
