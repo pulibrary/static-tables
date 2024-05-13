@@ -1,4 +1,5 @@
 import { DataService } from '../services/DataService.js';
+import SelectFilter from './SelectFilter.js';
 
 import Table from './Table.js';
 import TableDescription from './TableDescription.js';
@@ -9,7 +10,8 @@ export default {
   components: {
     Table,
     TableDescription,
-    TableTitle
+    TableTitle,
+    SelectFilter
   },
   props: {
     sorter: {
@@ -178,20 +180,7 @@ export default {
               <label for="name" class="form-label">Name</label>
               <input v-model="name" id="name" type="text" class="form-control" aria-label="Name of auction">
             </div>
-            <div class="col">
-              <label for="auction-house" class="form-label">Auction House</label>
-              <select v-model="auctionHouse" id="auction-house" class="form-select" aria-label="Auction House to filter by">
-                <option selected value="">- Any -</option>
-                <option v-for="ah in auctionHouseOptions()" :value="ah">{{ah}}</option>
-              </select>
-            </div>
-            <div class="col">
-              <label for="city" class="form-label">City</label>
-              <select v-model="city" id="city" class="form-select" aria-label="City to filter by">
-                <option selected value="">- Any -</option>
-                <option v-for="c in cityOptions()" :value="c">{{c}}</option>
-              </select>
-            </div>
+            <SelectFilter v-for="filter in dataFilters" :config="filter"></SelectFilter>
           </div>
           <div class="row">
             <div class="col"></div>
