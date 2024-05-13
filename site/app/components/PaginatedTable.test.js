@@ -3,6 +3,8 @@ import { mount } from '@vue/test-utils';
 import PaginatedTable from './PaginatedTable';
 import { sortByDate } from '../utilities/SortingUtilities.js';
 import DataColumns from '../configs/DataColumns.js';
+import * as Papa from '../../assets/js/papaparse/papaparse.js';
+window.Papa = Papa;
 
 describe('PaginatedTable', () => {
   test('table title', () => {
