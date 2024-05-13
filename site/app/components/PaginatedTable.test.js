@@ -3,6 +3,7 @@ import { mount } from '@vue/test-utils';
 import PaginatedTable from './PaginatedTable';
 import { sortByDate } from '../utilities/SortingUtilities.js';
 import DataColumns from '../configs/DataColumns.js';
+import DataFilters from '../configs/DataFilters.js';
 import * as Papa from '../../assets/js/papaparse/papaparse.js';
 window.Papa = Papa;
 
@@ -85,7 +86,7 @@ describe('PaginatedTable', () => {
         dataUrl: 'https://www.example.com',
         dataColumns: [],
         sorter: sortByDate,
-        dataFilters: []
+        dataFilters: DataFilters.marquand
       }
     });
     wrapper.setData({
@@ -148,7 +149,7 @@ describe('PaginatedTable', () => {
         dataUrl: 'https://www.example.com',
         dataColumns: DataColumns.marquand,
         sorter: sortByDate,
-        dataFilters: []
+        dataFilters: DataFilters.marquand
       }
     });
     wrapper.setData({
