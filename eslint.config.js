@@ -16,8 +16,10 @@ export default [
   ...pluginVue.configs['flat/recommended'],
   eslintConfigPrettier,
   {
+    ignores: ['node_modules', 'dist', '.gitignore', 'site/assets']
+  },
+  {
     files: ['*.js', '*.ts', '*.vue'],
-    ignores: ['node_modules', 'dist', '.gitignore'],
     languageOptions: {
       parser: vueParser,
       parserOptions: {

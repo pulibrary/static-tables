@@ -1,14 +1,11 @@
-import { parse } from '../../assets/js/csv-parse/sync.js';
-
 export class DataService {
-  static fetchData(url) {
-    return fetch(url)
-    .then(res => res.text())
-    .then(data => {
-      return parse(data, { columns: true });
-    })
-    .catch(err => {
-      console.log(err)
+  static fetchData(url, callback) {
+    Papa.parse(url, {
+      download: true,
+      header: true,
+      complete: function (results) {
+        callback(results.data);
+      }
     });
   }
 }

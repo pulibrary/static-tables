@@ -15,8 +15,8 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^5.3.3",
-    "csv-parse": "^5.5.5",
     "express": "^4.18.2",
+    "papaparse": "^5.4.1",
     "vue": "^3.4.27"
   },
   "devDependencies": {

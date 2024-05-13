@@ -158,10 +158,13 @@ export default {
           })
         )
       ].filter(c => c !== '');
+    },
+    setData(rows) {
+      this.rows = rows;
     }
   },
   created() {
-    DataService.fetchData(this.dataUrl).then(data => (this.rows = data));
+    DataService.fetchData(this.dataUrl, this.setData);
   },
   template: `
     <div class="container">
