@@ -20,7 +20,15 @@ export default {
       type: 'select',
       aria_label: 'Auction House to filter by',
       data_column: 'Auction House',
-      options_method: 'auctionHouseOptions'
+      options_generator: rows => {
+        return [
+          ...new Set(
+            rows.map(row => {
+              return row['Auction House'].trim();
+            })
+          )
+        ];
+      }
     },
     {
       id: 'city',
@@ -28,7 +36,15 @@ export default {
       type: 'select',
       aria_label: 'City to filter by',
       data_column: 'City',
-      options_method: 'cityOptions'
+      options_generator: rows => {
+        return [
+          ...new Set(
+            rows.map(row => {
+              return row.City.trim();
+            })
+          )
+        ].filter(c => c !== '');
+      }
     }
   ]
 };

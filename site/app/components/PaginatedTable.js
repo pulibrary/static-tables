@@ -142,22 +142,14 @@ export default {
       return this.filteredRows.length;
     },
     auctionHouseOptions() {
-      return [
-        ...new Set(
-          this.rows.map(row => {
-            return row['Auction House'].trim();
-          })
-        )
-      ];
+      const config = this.dataFilters.find(
+        filter => filter.id === 'auction-house'
+      );
+      return config ? config.options_generator(this.rows) : [];
     },
     cityOptions() {
-      return [
-        ...new Set(
-          this.rows.map(row => {
-            return row.City.trim();
-          })
-        )
-      ].filter(c => c !== '');
+      const config = this.dataFilters.find(filter => filter.id === 'city');
+      return config ? config.options_generator(this.rows) : [];
     },
     setData(rows) {
       this.rows = rows;
