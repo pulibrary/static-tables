@@ -84,9 +84,6 @@ export default {
     },
     name() {
       this.filterRows();
-    },
-    city() {
-      this.filterRows();
     }
   },
   methods: {
@@ -147,9 +144,12 @@ export default {
       this.auctionHouse = value;
       this.filterRows();
     },
-    cityOptions() {
-      const config = this.dataFilters.find(filter => filter.id === 'city');
-      return config ? config.options_generator(this.rows) : [];
+    cityConfig() {
+      return this.dataFilters.find(filter => filter.id === 'city');
+    },
+    handleCityChange(value) {
+      this.city = value;
+      this.filterRows();
     },
     setData(rows) {
       this.rows = rows;
@@ -180,11 +180,7 @@ export default {
               <SelectFilter :config="auctionHouseConfig()" :rows="rows" @selected="handleAuctionHouseChange"></SelectFilter>
             </div>
             <div class="col">
-              <label for="city" class="form-label">City</label>
-              <select v-model="city" id="city" class="form-select" aria-label="City to filter by">
-                <option selected value="">- Any -</option>
-                <option v-for="c in cityOptions()" :value="c">{{c}}</option>
-              </select>
+              <SelectFilter :config="cityConfig()" :rows="rows" @selected="handleCityChange"></SelectFilter>
             </div>
           </div>
           <div class="row">
