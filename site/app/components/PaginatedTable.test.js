@@ -349,7 +349,7 @@ describe('PaginatedTable', () => {
     const bottomPaginationOne = wrapper.find('.container.paging');
     expect(bottomPaginationOne.text()).toBe('1');
     // Click first link to show 5 results per page
-    await wrapper.find('.paging a').trigger('click');
+    await wrapper.find('#size-5').trigger('click');
     const bottomPaginationTwo = wrapper.find('.container.paging');
     expect(bottomPaginationTwo.text()).toBe('12next >last >>');
     await wrapper

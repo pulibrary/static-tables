@@ -5,10 +5,12 @@ import TableDescription from './TableDescription.js';
 import TableTitle from './TableTitle.js';
 import SelectFilter from './SelectFilter.js';
 import TextFilter from './TextFilter.js';
+import Pagination from './Pagination.js';
 
 export default {
   name: 'PaginatedTable',
   components: {
+    Pagination,
     Table,
     TableDescription,
     TableTitle,
@@ -83,6 +85,14 @@ export default {
     }
   },
   methods: {
+    handlePageSize(size) {
+      this.pageSize = size;
+      this.filterRows();
+    },
+    handlePageChange(page) {
+      this.page = page;
+      this.filterRows();
+    },
     filterRows() {
       let rows = this.rows
         .filter(
@@ -107,22 +117,8 @@ export default {
         this.page = 1;
       }
     },
-    setPageSize(size) {
-      this.pageSize = size;
-    },
-    setPage(page) {
-      this.page = page;
-    },
     lastPage() {
       return Math.ceil(this.filteredRowsCount / this.pageSize);
-    },
-    availablePages() {
-      const min = this.page < 5 ? 1 : this.page - 4;
-      const lastPage = this.lastPage();
-      const max = lastPage <= this.page + 4 ? lastPage : this.page + 4;
-      const length = max - min + 1;
-
-      return Array.from({ length: length }, (x, i) => i + min);
     },
     firstEntry() {
       return (this.page - 1) * this.pageSize + 1;
@@ -173,9 +169,8 @@ export default {
       <TableTitle :title="dataTableTitle"></TableTitle>
       <TableDescription :description="dataTableDescription"></TableDescription>
       Displaying {{firstEntry()}} - {{lastEntry()}} of {{filteredRowsCount}}.
-
-      <div class="paging">Show <a href="#" v-on:click="setPageSize(5)">5</a> | <a href="#" v-on:click="setPageSize(10)">10</a> | <a href="#" v-on:click="setPageSize(20)">20</a> | <a href="#" v-on:click="setPageSize(40)">40</a> | <a href="#" v-on:click="setPageSize(60)">60</a> results per page.</div>
-      <div class="container">
+      <Pagination :lastPage="lastPage()" @pageSizeChange="handlePageSize" @pageChange="handlePageChange">
+        <div class="container">
         <form>
           <div class="row">
             <div class="col">
@@ -197,18 +192,6 @@ export default {
         </form>
       </div>
       <Table :columns="dataColumns" :rows="filteredRows"></Table>
-      <div class="container paging">
-        <div class="btn-group">
-          <button v-if="page !== 1" v-on:click="setPage(1)" type="button" class="btn btn-outline-dark">&lt;&lt; first</button>
-          <button v-if="page !== 1" v-on:click="setPage(page - 1)" type="button" class="btn btn-outline-dark">&lt; previous</button>
-          <div v-for="pageNumber, index in availablePages()" class="btn-group">
-            <button v-if="index === 0 && pageNumber !== 1" class="btn btn-outline-dark" disabled>...</button>
-            <button v-on:click="setPage(pageNumber)" type="button" class="btn btn-outline-dark" :class="{ active: pageNumber === page}">{{pageNumber}}</button>
-            <button v-if="index === availablePages().length - 1 && pageNumber !== lastPage()" type="button" class="btn btn-outline-dark" disabled>...</button>
-          </div>
-          <button v-if="page !== lastPage()" v-on:click="setPage(page + 1)" type="button" class="btn btn-outline-dark">next &gt;</button>
-          <button v-if="page !== lastPage()" v-on:click="setPage(lastPage())" type="button" class="btn btn-outline-dark">last &gt;&gt;</button>
-        </div>
-      </div>
+    </Pagination>      
     </div>`
 };
