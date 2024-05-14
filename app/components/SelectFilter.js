@@ -11,7 +11,7 @@ export default {
       </select>
       `,
   props: ['config', 'rows'],
-  emits: ['selected'],
+  emits: ['filterChange'],
   computed: {
     options() {
       if (this.config.options_generator && this.rows) {
@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     handleChange(event) {
-      this.$emit('selected', {
+      this.$emit('filterChange', {
         field: this.config.id,
         value: event.target.value
       });

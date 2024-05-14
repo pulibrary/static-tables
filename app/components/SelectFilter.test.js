@@ -57,8 +57,8 @@ describe('SelectFilter', () => {
 
     wrapper.get('select').setValue('Option 2');
 
-    expect(wrapper.emitted()['selected'].length).toEqual(1);
-    expect(wrapper.emitted()['selected'][0]).toEqual([
+    expect(wrapper.emitted()['filterChange'].length).toEqual(1);
+    expect(wrapper.emitted()['filterChange'][0]).toEqual([
       { field: 'city', value: 'Option 2' }
     ]);
   });

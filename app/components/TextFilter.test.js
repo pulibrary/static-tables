@@ -34,8 +34,8 @@ describe('TextFilter', () => {
 
     wrapper.get('input').setValue('bronze');
 
-    expect(wrapper.emitted()['changed'].length).toEqual(1);
-    expect(wrapper.emitted()['changed'][0]).toEqual([
+    expect(wrapper.emitted()['filterChange'].length).toEqual(1);
+    expect(wrapper.emitted()['filterChange'][0]).toEqual([
       { field: 'title', value: 'bronze' }
     ]);
   });
