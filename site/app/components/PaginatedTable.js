@@ -4,6 +4,7 @@ import Table from './Table.js';
 import TableDescription from './TableDescription.js';
 import TableTitle from './TableTitle.js';
 import SelectFilter from './SelectFilter.js';
+import TextFilter from './TextFilter.js';
 
 export default {
   name: 'PaginatedTable',
@@ -11,7 +12,8 @@ export default {
     Table,
     TableDescription,
     TableTitle,
-    SelectFilter
+    SelectFilter,
+    TextFilter
   },
   props: {
     sorter: {
@@ -79,9 +81,6 @@ export default {
         this.filterRows();
       }
     },
-    date() {
-      this.filterRows();
-    },
     name() {
       this.filterRows();
     }
@@ -137,6 +136,13 @@ export default {
     totalEntries() {
       return this.filteredRows.length;
     },
+    dateConfig() {
+      return this.dataFilters.find(filter => filter.id === 'date');
+    },
+    handleDateChange(value) {
+      this.date = value;
+      this.filterRows();
+    },
     auctionHouseConfig() {
       return this.dataFilters.find(filter => filter.id === 'auction-house');
     },
@@ -169,8 +175,7 @@ export default {
         <form>
           <div class="row">
             <div class="col">
-              <label for="date" class="form-label">Date</label>
-              <input v-model="date" id="date" type="text" class="form-control" aria-label="Date to filter by">
+              <TextFilter :config="dateConfig()" @changed="handleDateChange"></TextFilter>
             </div>
             <div class="col">
               <label for="name" class="form-label">Name</label>
