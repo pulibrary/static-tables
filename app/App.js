@@ -20,7 +20,7 @@ export default {
       sorterMethod: sortByDate,
       dataUrl: DataSources.marquand,
       dataColumns: DataColumns.marquand,
-      dataTableDescription: DataMetadata.marquand.table_description,
+      dataTableDescription: DataMetadata.marquand.description,
       dataTableTitle: DataMetadata.marquand.table_title,
       dataFilters: DataFilters.marquand,
       dataPageTitle: DataMetadata.marquand.page_title,
