@@ -2,6 +2,7 @@ import globals from 'globals';
 import pluginVue from 'eslint-plugin-vue';
 import eslint from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import pluginVueA11y from 'eslint-plugin-vuejs-accessibility';
 import vueParser from 'vue-eslint-parser';
 
 export default [
@@ -13,6 +14,7 @@ export default [
       'no-empty': 'warn'
     }
   },
+  ...pluginVueA11y.configs['flat/recommended'],
   ...pluginVue.configs['flat/recommended'],
   eslintConfigPrettier,
   {
