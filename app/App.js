@@ -5,6 +5,7 @@ import DataColumns from './configs/DataColumns.js';
 import DataSources from './configs/DataSources.js';
 import DataMetadata from './configs/DataMetadata.js';
 import DataFilters from './configs/DataFilters.js';
+import marquandBannerUrl from './assets/images/marquand-banner_0.jpg';
 import { sortByDate } from './utilities/SortingUtilities.js';
 
 export default {
@@ -19,18 +20,19 @@ export default {
       sorterMethod: sortByDate,
       dataUrl: DataSources.marquand,
       dataColumns: DataColumns.marquand,
-      dataTableDescription: DataMetadata.marquand.table_description,
+      dataTableDescription: DataMetadata.marquand.description,
       dataTableTitle: DataMetadata.marquand.table_title,
       dataFilters: DataFilters.marquand,
       dataPageTitle: DataMetadata.marquand.page_title,
-      dataHeaderTitle: DataMetadata.marquand.header_title
+      dataHeaderTitle: DataMetadata.marquand.header_title,
+      bannerUrl: marquandBannerUrl
     };
   },
   template: `
     <Header :title="dataHeaderTitle"></Header>
     <div class="container">
       <div class="container">
-        <img :src="'./assets/images/marquand-banner_0.jpg'" class="img-fluid" width="1200" height="265" alt="geometric pattern" />
+        <img :src="bannerUrl" class="img-fluid" width="1200" height="265" alt="geometric pattern" />
         <h2 class="page-title bg-black text-white">{{ dataPageTitle }}</h2>
       </div>
       <PaginatedTable
