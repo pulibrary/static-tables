@@ -15,7 +15,7 @@ describe('PaginatedTable', () => {
         dataColumns: [],
         sorter: sortByDate,
         dataTableTitle: 'Any old title',
-        dataFilters: []
+        dataFilters: DataFilters.marquand
       }
     });
     const title = wrapper.get('.table-title');
@@ -29,7 +29,7 @@ describe('PaginatedTable', () => {
         dataColumns: [],
         sorter: sortByDate,
         dataTableDescription: 'directed to a Marquand staff member',
-        dataFilters: []
+        dataFilters: DataFilters.marquand
       }
     });
     const description = wrapper.get('.description');
@@ -41,7 +41,7 @@ describe('PaginatedTable', () => {
         dataUrl: 'http://www.example.com/',
         dataColumns: [],
         sorter: sortByDate,
-        dataFilters: []
+        dataFilters: DataFilters.marquand
       }
     });
     wrapper.get('form');
@@ -59,7 +59,7 @@ describe('PaginatedTable', () => {
         dataUrl: 'http://www.example.com/',
         dataColumns: [],
         sorter: sortByDate,
-        dataFilters: []
+        dataFilters: DataFilters.marquand
       }
     });
     wrapper.get('form');
@@ -217,7 +217,7 @@ describe('PaginatedTable', () => {
         dataUrl: 'https://www.example.com',
         dataColumns: DataColumns.marquand,
         sorter: sortByDate,
-        dataFilters: []
+        dataFilters: DataFilters.marquand
       }
     });
     wrapper.setData({
@@ -290,7 +290,7 @@ describe('PaginatedTable', () => {
         dataUrl: 'https://www.example.com',
         dataColumns: DataColumns.marquand,
         sorter: sortByDate,
-        dataFilters: []
+        dataFilters: DataFilters.marquand
       }
     });
     wrapper.setData({
