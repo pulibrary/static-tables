@@ -6,6 +6,7 @@ import TableTitle from './TableTitle.js';
 import SelectFilter from './SelectFilter.js';
 import TextFilter from './TextFilter.js';
 import Pagination from './Pagination.js';
+import { FilterSet } from '../utilities/FilterSet.js';
 
 export default {
   name: 'PaginatedTable',
@@ -58,13 +59,10 @@ export default {
     return {
       pageSize: 100,
       page: 1,
-      date: '',
-      name: '',
-      auctionHouse: '',
-      city: '',
       rows: [],
       filteredRows: [],
-      filteredRowsCount: null
+      filteredRowsCount: null,
+      filterSet: new FilterSet(this.dataFilters)
     };
   },
   watch: {
@@ -94,20 +92,7 @@ export default {
       this.filterRows();
     },
     filterRows() {
-      let rows = this.rows
-        .filter(
-          row => row.Date.toLowerCase().indexOf(this.date.toLowerCase()) !== -1
-        )
-        .filter(
-          row => row.Name.toLowerCase().indexOf(this.name.toLowerCase()) !== -1
-        )
-        .filter(
-          row =>
-            this.auctionHouse === '' ||
-            row['Auction House'] === this.auctionHouse
-        )
-        .filter(row => this.city === '' || row.City === this.city)
-        .sort(this.sorter);
+      let rows = this.filterSet.filterRows(this.rows).sort(this.sorter);
       const first = this.firstEntry() - 1;
       const last = this.lastEntry();
       this.filteredRowsCount = rows.length;
@@ -133,28 +118,28 @@ export default {
       return this.dataFilters.find(filter => filter.id === 'date');
     },
     handleDateChange(value) {
-      this.date = value;
+      this.filterSet.setValue('date', value);
       this.filterRows();
     },
     nameConfig() {
       return this.dataFilters.find(filter => filter.id === 'name');
     },
     handleNameChange(value) {
-      this.name = value;
+      this.filterSet.setValue('name', value);
       this.filterRows();
     },
     auctionHouseConfig() {
       return this.dataFilters.find(filter => filter.id === 'auction-house');
     },
     handleAuctionHouseChange(value) {
-      this.auctionHouse = value;
+      this.filterSet.setValue('auction-house', value);
       this.filterRows();
     },
     cityConfig() {
       return this.dataFilters.find(filter => filter.id === 'city');
     },
     handleCityChange(value) {
-      this.city = value;
+      this.filterSet.setValue('city', value);
       this.filterRows();
     },
     setData(rows) {
