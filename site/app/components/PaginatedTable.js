@@ -80,9 +80,6 @@ export default {
       if (newPage) {
         this.filterRows();
       }
-    },
-    name() {
-      this.filterRows();
     }
   },
   methods: {
@@ -143,6 +140,13 @@ export default {
       this.date = value;
       this.filterRows();
     },
+    nameConfig() {
+      return this.dataFilters.find(filter => filter.id === 'name');
+    },
+    handleNameChange(value) {
+      this.name = value;
+      this.filterRows();
+    },
     auctionHouseConfig() {
       return this.dataFilters.find(filter => filter.id === 'auction-house');
     },
@@ -178,8 +182,7 @@ export default {
               <TextFilter :config="dateConfig()" @changed="handleDateChange"></TextFilter>
             </div>
             <div class="col">
-              <label for="name" class="form-label">Name</label>
-              <input v-model="name" id="name" type="text" class="form-control" aria-label="Name of auction">
+              <TextFilter :config="nameConfig()" @changed="handleNameChange"></TextFilter>
             </div>
             <div class="col">
               <SelectFilter :config="auctionHouseConfig()" :rows="rows" @selected="handleAuctionHouseChange"></SelectFilter>
