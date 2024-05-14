@@ -3,11 +3,8 @@ import Header from './components/Header.js';
 import PaginatedTable from './components/PaginatedTable.js';
 import DataColumns from './configs/DataColumns.js';
 import DataSources from './configs/DataSources.js';
-import DataTableDescription from './configs/DataTableDescription.js';
-import DataTableTitle from './configs/DataTableTitle.js';
+import DataMetadata from './configs/DataMetadata.js';
 import DataFilters from './configs/DataFilters.js';
-import DataPageTitle from './configs/DataPageTitle.js';
-import DataHeaderTitle from './configs/DataHeaderTitle.js';
 import { sortByDate } from './utilities/SortingUtilities.js';
 
 export default {
@@ -22,11 +19,11 @@ export default {
       sorterMethod: sortByDate,
       dataUrl: DataSources.marquand,
       dataColumns: DataColumns.marquand,
-      dataTableDescription: DataTableDescription.marquand,
-      dataTableTitle: DataTableTitle.marquand,
+      dataTableDescription: DataMetadata.marquand.table_description,
+      dataTableTitle: DataMetadata.marquand.table_title,
       dataFilters: DataFilters.marquand,
-      dataPageTitle: DataPageTitle.marquand,
-      dataHeaderTitle: DataHeaderTitle.marquand
+      dataPageTitle: DataMetadata.marquand.page_title,
+      dataHeaderTitle: DataMetadata.marquand.header_title
     };
   },
   template: `
