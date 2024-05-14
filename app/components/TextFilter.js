@@ -8,7 +8,10 @@ export default {
   emits: ['changed'],
   methods: {
     handleInput(event) {
-      this.$emit('changed', event.target.value);
+      this.$emit('changed', {
+        field: this.config.id,
+        value: event.target.value
+      });
     }
   }
 };

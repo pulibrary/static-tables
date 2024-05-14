@@ -30,11 +30,13 @@ describe('TextFilter', () => {
   });
 
   test('it emits an event when the value changes', () => {
-    const wrapper = mount(TextFilter, { props: { config: {} } });
+    const wrapper = mount(TextFilter, { props: { config: { id: 'title' } } });
 
     wrapper.get('input').setValue('bronze');
 
     expect(wrapper.emitted()['changed'].length).toEqual(1);
-    expect(wrapper.emitted()['changed'][0]).toEqual(['bronze']);
+    expect(wrapper.emitted()['changed'][0]).toEqual([
+      { field: 'title', value: 'bronze' }
+    ]);
   });
 });
