@@ -117,29 +117,29 @@ export default {
     dateConfig() {
       return this.dataFilters.find(filter => filter.id === 'date');
     },
-    handleDateChange(value) {
-      this.filterSet.setValue('date', value);
+    handleDateChange(change) {
+      this.filterSet.setValue(change.field, change.value);
       this.filterRows();
     },
     nameConfig() {
       return this.dataFilters.find(filter => filter.id === 'name');
     },
-    handleNameChange(value) {
-      this.filterSet.setValue('name', value);
+    handleNameChange(change) {
+      this.filterSet.setValue(change.field, change.value);
       this.filterRows();
     },
     auctionHouseConfig() {
       return this.dataFilters.find(filter => filter.id === 'auction-house');
     },
-    handleAuctionHouseChange(value) {
-      this.filterSet.setValue('auction-house', value);
+    handleAuctionHouseChange(change) {
+      this.filterSet.setValue(change.field, change.value);
       this.filterRows();
     },
     cityConfig() {
       return this.dataFilters.find(filter => filter.id === 'city');
     },
-    handleCityChange(value) {
-      this.filterSet.setValue('city', value);
+    handleCityChange(change) {
+      this.filterSet.setValue(change.field, change.value);
       this.filterRows();
     },
     setData(rows) {

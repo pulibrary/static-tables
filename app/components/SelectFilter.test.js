@@ -10,7 +10,7 @@ describe('SelectFilter', () => {
 
     expect(wrapper.get('label').text()).toEqual('City');
   });
-  test('it uses the id to associate the select and the input', () => {
+  test('it uses the id to associate the label and the select', () => {
     const wrapper = mount(SelectFilter, {
       props: { config: { name: 'City', id: 'my-city' } }
     });
@@ -48,6 +48,7 @@ describe('SelectFilter', () => {
     const wrapper = mount(SelectFilter, {
       props: {
         config: {
+          id: 'city',
           options_generator: () => ['Option 1', 'Option 2']
         },
         rows: []
@@ -57,6 +58,8 @@ describe('SelectFilter', () => {
     wrapper.get('select').setValue('Option 2');
 
     expect(wrapper.emitted()['selected'].length).toEqual(1);
-    expect(wrapper.emitted()['selected'][0]).toEqual(['Option 2']);
+    expect(wrapper.emitted()['selected'][0]).toEqual([
+      { field: 'city', value: 'Option 2' }
+    ]);
   });
 });

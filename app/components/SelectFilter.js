@@ -23,7 +23,10 @@ export default {
   },
   methods: {
     handleChange(event) {
-      this.$emit('selected', event.target.value);
+      this.$emit('selected', {
+        field: this.config.id,
+        value: event.target.value
+      });
     }
   }
 };
