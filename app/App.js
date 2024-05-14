@@ -5,6 +5,7 @@ import DataColumns from './configs/DataColumns.js';
 import DataSources from './configs/DataSources.js';
 import DataMetadata from './configs/DataMetadata.js';
 import DataFilters from './configs/DataFilters.js';
+import marquandBannerUrl from './assets/images/marquand-banner_0.jpg';
 import { sortByDate } from './utilities/SortingUtilities.js';
 
 export default {
@@ -23,7 +24,8 @@ export default {
       dataTableTitle: DataMetadata.marquand.table_title,
       dataFilters: DataFilters.marquand,
       dataPageTitle: DataMetadata.marquand.page_title,
-      dataHeaderTitle: DataMetadata.marquand.header_title
+      dataHeaderTitle: DataMetadata.marquand.header_title,
+      bannerUrl: marquandBannerUrl
     };
   },
   template: `
@@ -31,10 +33,14 @@ export default {
     <div class="container">
       <div class="container">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <img :src="'./assets/images/marquand-banner_0.jpg'" class="img-fluid" width="1200" height="265" alt="geometric pattern" />
         <h2 class="page-title bg-black text-white">{{ dataPageTitle }}</h2>
 =======
         <img :src="'./app/assets/images/marquand-banner_0.jpg'" class="img-fluid" width="1200" height="265" alt="geometric pattern" />
+=======
+        <img :src="bannerUrl" class="img-fluid" width="1200" height="265" alt="geometric pattern" />
+>>>>>>> 1b90a49 (Updated vue import and image sources)
         <h2 class="bg-black text-white">Marquand Library of Art and Archaeology</h2>
 >>>>>>> d8bf48a (Moved assets and using port 5173)
       </div>

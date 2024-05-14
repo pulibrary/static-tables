@@ -1,3 +1,8 @@
+import facebook from '../assets/icons/facebook.svg';
+import twitter from '../assets/icons/twitter.svg';
+import princeton from '../assets/icons/princeton.svg';
+import friends from '../assets/icons/friends.svg';
+
 export default {
   name: 'Header',
   template: `
@@ -101,16 +106,16 @@ export default {
               </li>
               <li>
                 <a class="footer-icon" href="https://www.facebook.com/PULibrary">
-                  <img src="./app/assets/icons/facebook.svg">
+                  <img :src="facebook">
                 </a>
                 <a class="footer-icon" href="http://twitter.com/PULibrary">
-                  <img src="./app/assets/icons/twitter.svg">
+                  <img :src="twitter">
                 </a>
                 <a class="footer-icon" href="https://libguides.princeton.edu/usgovdocs">
-                  <img src="./app/assets/icons/princeton.svg">
+                  <img :src="princeton">
                 </a>
                 <a class="footer-icon" href="">
-                  <img src="./app/assets/icons/friends.svg">
+                  <img :src="friends">
                 </a>
               </li>
               <li>
@@ -123,5 +128,13 @@ export default {
           </div>
         </div>
       </div>
-    </footer>`
+    </footer>`,
+  data() {
+    return {
+      facebook: facebook,
+      twitter: twitter,
+      princeton: princeton,
+      friends: friends
+    };
+  }
 };
