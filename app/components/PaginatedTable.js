@@ -114,31 +114,10 @@ export default {
     totalEntries() {
       return this.filteredRows.length;
     },
-    dateConfig() {
-      return this.dataFilters.find(filter => filter.id === 'date');
+    filterComponent(type) {
+      return type === 'text' ? TextFilter : SelectFilter;
     },
-    handleDateChange(change) {
-      this.filterSet.setValue(change.field, change.value);
-      this.filterRows();
-    },
-    nameConfig() {
-      return this.dataFilters.find(filter => filter.id === 'name');
-    },
-    handleNameChange(change) {
-      this.filterSet.setValue(change.field, change.value);
-      this.filterRows();
-    },
-    auctionHouseConfig() {
-      return this.dataFilters.find(filter => filter.id === 'auction-house');
-    },
-    handleAuctionHouseChange(change) {
-      this.filterSet.setValue(change.field, change.value);
-      this.filterRows();
-    },
-    cityConfig() {
-      return this.dataFilters.find(filter => filter.id === 'city');
-    },
-    handleCityChange(change) {
+    handleFilterChange(change) {
       this.filterSet.setValue(change.field, change.value);
       this.filterRows();
     },
@@ -158,17 +137,8 @@ export default {
         <div class="container">
         <form>
           <div class="row">
-            <div class="col">
-              <TextFilter :config="dateConfig()" @changed="handleDateChange"></TextFilter>
-            </div>
-            <div class="col">
-              <TextFilter :config="nameConfig()" @changed="handleNameChange"></TextFilter>
-            </div>
-            <div class="col">
-              <SelectFilter :config="auctionHouseConfig()" :rows="rows" @selected="handleAuctionHouseChange"></SelectFilter>
-            </div>
-            <div class="col">
-              <SelectFilter :config="cityConfig()" :rows="rows" @selected="handleCityChange"></SelectFilter>
+            <div class="col" v-for="filter in dataFilters">
+              <component :is="filterComponent(filter.type)" :config="filter" @filterChange="handleFilterChange" :rows="rows"></component>
             </div>
           </div>
           <div class="row">

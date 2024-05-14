@@ -5,10 +5,10 @@ export default {
       <input class="form-control" :id="config.id" :aria-label="config.aria_label" type="text" @input="handleInput">
       `,
   props: ['config'],
-  emits: ['changed'],
+  emits: ['filterChange'],
   methods: {
     handleInput(event) {
-      this.$emit('changed', {
+      this.$emit('filterChange', {
         field: this.config.id,
         value: event.target.value
       });
