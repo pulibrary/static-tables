@@ -6,5 +6,6 @@ export default {
     ['Sale', 'Sale #'],
     ['Name', 'Name'],
     ['Notes', 'Catalog']
-  ]
+  ],
+  faculty_and_staff: [['First Name', 'fname']]
 };

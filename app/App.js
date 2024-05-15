@@ -23,41 +23,49 @@ export default {
   },
   data() {
     return {
-      sorterMethod: sortByDate,
-      dataUrl: DataSources.marquand,
-      dataColumns: DataColumns.marquand,
-      dataTableDescription: DataMetadata.marquand.description,
-      dataTableTitle: DataMetadata.marquand.table_title,
-      dataFilters: DataFilters.marquand,
-      dataHeaderTitle: DataMetadata.marquand.header_title,
       bannerUrl: marquandBannerUrl
     };
   },
   computed: {
-    currentConfig() {
+    metadataConfig() {
       return DataMetadata[this.desiredRoute];
-    },
-    dataPageTitle() {
-      return this.currentConfig.page_title;
     },
     desiredRoute() {
       const routePath = window.location.pathname.split('/').pop();
       return routes[routePath] || routes['marquand'];
+    },
+    dataUrl() {
+      return DataSources[this.desiredRoute];
+    },
+    dataColumns() {
+      return DataColumns[this.desiredRoute];
+    },
+    dataFilters() {
+      return DataFilters[this.desiredRoute];
+    },
+    sorterMethod() {
+      if (this.desiredRoute === 'marquand') {
+        return sortByDate;
+      } else {
+        return (a, b) => {
+          return -1;
+        };
+      }
     }
   },
   template: `
-    <Header :title="dataHeaderTitle"></Header>
+    <Header :title="metadataConfig.header_title"></Header>
     <div class="container">
       <div class="container">
         <img :src="bannerUrl" class="img-fluid" width="1200" height="265" alt="geometric pattern" />
-        <h2 class="page-title bg-black text-white">{{ dataPageTitle }}</h2>
+        <h2 class="page-title bg-black text-white">{{ metadataConfig.page_title }}</h2>
       </div>
       <PaginatedTable
         :sorter="sorterMethod"
         :dataUrl="dataUrl"
         :dataColumns="dataColumns"
-        :dataTableDescription="dataTableDescription"
-        :dataTableTitle="dataTableTitle"
+        :dataTableDescription="metadataConfig.description"
+        :dataTableTitle="metadataConfig.table_title"
         :dataFilters="dataFilters"
       ></PaginatedTable>
     </div>
