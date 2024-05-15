@@ -4,7 +4,7 @@ import Pagination from './Pagination';
 describe('Pagination', () => {
   test('it emits event pageSizeChange when pagination option is clicked', () => {
     const wrapper = mount(Pagination, {
-      props: {}
+      props: { lastPage: 0 }
     });
 
     wrapper.get('#size-5').trigger('click');
