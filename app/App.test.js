@@ -20,8 +20,11 @@ describe('App', () => {
   describe('Routing', () => {
     test('changing page title by url', () => {
       Object.defineProperty(window, 'location', {
-        hash: '/faculty-and-professional-staff-index'
+        value: new URL(
+          'https://library.princeton.edu#/faculty-and-professional-staff-index'
+        )
       });
+      wrapper = mount(App);
       expect(wrapper.find('.page-title').text()).toBe(
         'Faculty and Professional Staff Index, 1764-2006'
       );
