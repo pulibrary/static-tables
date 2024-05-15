@@ -8,8 +8,9 @@ import DataFilters from './configs/DataFilters.js';
 import marquandBannerUrl from './assets/images/marquand-banner_0.jpg';
 import { sortByDate } from './utilities/SortingUtilities.js';
 
+// prettier-ignore
 const routes = {
-  marquand: 'marquand',
+  'marquand': 'marquand',
   'faculty-and-professional-staff-index': 'faculty_and_staff'
 };
 
