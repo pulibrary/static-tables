@@ -21,7 +21,7 @@ describe('App', () => {
     test('changing page title by url', () => {
       Object.defineProperty(window, 'location', {
         value: new URL(
-          'https://library.princeton.edu#/faculty-and-professional-staff-index'
+          'https://library.princeton.edu/static_tables/faculty-and-professional-staff-index'
         )
       });
       wrapper = mount(App);
