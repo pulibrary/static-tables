@@ -8,6 +8,11 @@ import DataFilters from './configs/DataFilters.js';
 import marquandBannerUrl from './assets/images/marquand-banner_0.jpg';
 import { sortByDate } from './utilities/SortingUtilities.js';
 
+const routes = {
+  '/marquand': 'marquand',
+  '/faculty-and-professional-staff-index': 'faculty_and_staff'
+};
+
 export default {
   name: 'App',
   components: {
@@ -17,16 +22,31 @@ export default {
   },
   data() {
     return {
+      currentPath: window.location.hash,
       sorterMethod: sortByDate,
       dataUrl: DataSources.marquand,
       dataColumns: DataColumns.marquand,
       dataTableDescription: DataMetadata.marquand.description,
       dataTableTitle: DataMetadata.marquand.table_title,
       dataFilters: DataFilters.marquand,
-      dataPageTitle: DataMetadata.marquand.page_title,
+      // dataPageTitle: DataMetadata.marquand.page_title,
       dataHeaderTitle: DataMetadata.marquand.header_title,
       bannerUrl: marquandBannerUrl
     };
+  },
+  computed: {
+    currentConfig() {
+      console.log(`Current path: ${this.currentPath}`);
+      return DataMetadata[routes[this.currentPath.slice(1) || '/marquand']];
+    },
+    dataPageTitle() {
+      return this.currentConfig.page_title;
+    }
+  },
+  mounted() {
+    window.addEventListener('hashchange', () => {
+      this.currentPath = window.location.hash;
+    });
   },
   template: `
     <Header :title="dataHeaderTitle"></Header>
