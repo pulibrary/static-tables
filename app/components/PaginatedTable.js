@@ -114,9 +114,6 @@ export default {
     totalEntries() {
       return this.filteredRows.length;
     },
-    filterComponent(type) {
-      return type === 'text' ? TextFilter : SelectFilter;
-    },
     handleFilterChange(change) {
       this.filterSet.setValue(change.field, change.value);
       this.filterRows();
@@ -138,7 +135,8 @@ export default {
         <form>
           <div class="row">
             <div class="col" v-for="filter in dataFilters">
-              <component :is="filterComponent(filter.type)" :config="filter" @filterChange="handleFilterChange" :rows="rows"></component>
+              <TextFilter v-if="filter.type === 'text'" :config="filter" @filterChange="handleFilterChange"></TextFilter>
+              <SelectFilter v-else :config="filter" @filterChange="handleFilterChange" :rows="rows"></SelectFilter>
             </div>
           </div>
           <div class="row">
