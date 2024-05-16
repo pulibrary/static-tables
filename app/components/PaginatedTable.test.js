@@ -2,8 +2,7 @@ import { describe, test, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import PaginatedTable from './PaginatedTable';
 import { sortByDate } from '../utilities/SortingUtilities.js';
-import DataColumns from '../configs/DataColumns.js';
-import DataFilters from '../configs/DataFilters.js';
+import Marquand from '../configs/Marquand.js';
 
 describe('PaginatedTable', () => {
   test('table title', () => {
@@ -13,7 +12,7 @@ describe('PaginatedTable', () => {
         dataColumns: [],
         sorter: sortByDate,
         dataTableTitle: 'Any old title',
-        dataFilters: DataFilters.marquand
+        dataFilters: Marquand.data_filters
       }
     });
     const title = wrapper.get('.table-title');
@@ -27,7 +26,7 @@ describe('PaginatedTable', () => {
         dataColumns: [],
         sorter: sortByDate,
         dataTableDescription: 'directed to a Marquand staff member',
-        dataFilters: DataFilters.marquand
+        dataFilters: Marquand.data_filters
       }
     });
     const description = wrapper.get('.description');
@@ -39,7 +38,7 @@ describe('PaginatedTable', () => {
         dataUrl: 'http://www.example.com/',
         dataColumns: [],
         sorter: sortByDate,
-        dataFilters: DataFilters.marquand
+        dataFilters: Marquand.data_filters
       }
     });
     wrapper.get('form');
@@ -57,7 +56,7 @@ describe('PaginatedTable', () => {
         dataUrl: 'http://www.example.com/',
         dataColumns: [],
         sorter: sortByDate,
-        dataFilters: DataFilters.marquand
+        dataFilters: Marquand.data_filters
       }
     });
     wrapper.get('form');
@@ -84,7 +83,7 @@ describe('PaginatedTable', () => {
         dataUrl: 'https://www.example.com',
         dataColumns: [],
         sorter: sortByDate,
-        dataFilters: DataFilters.marquand
+        dataFilters: Marquand.data_filters
       }
     });
     wrapper.setData({
@@ -145,9 +144,9 @@ describe('PaginatedTable', () => {
     const wrapper = mount(PaginatedTable, {
       props: {
         dataUrl: 'https://www.example.com',
-        dataColumns: DataColumns.marquand,
+        dataColumns: Marquand.data_columns,
         sorter: sortByDate,
-        dataFilters: DataFilters.marquand
+        dataFilters: Marquand.data_filters
       }
     });
     wrapper.setData({
@@ -213,9 +212,9 @@ describe('PaginatedTable', () => {
     const wrapper = mount(PaginatedTable, {
       props: {
         dataUrl: 'https://www.example.com',
-        dataColumns: DataColumns.marquand,
+        dataColumns: Marquand.data_columns,
         sorter: sortByDate,
-        dataFilters: DataFilters.marquand
+        dataFilters: Marquand.data_filters
       }
     });
     wrapper.setData({
@@ -286,9 +285,9 @@ describe('PaginatedTable', () => {
     const wrapper = mount(PaginatedTable, {
       props: {
         dataUrl: 'https://www.example.com',
-        dataColumns: DataColumns.marquand,
+        dataColumns: Marquand.data_columns,
         sorter: sortByDate,
-        dataFilters: DataFilters.marquand
+        dataFilters: Marquand.data_filters
       }
     });
     wrapper.setData({
