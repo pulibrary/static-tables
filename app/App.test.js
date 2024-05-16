@@ -40,5 +40,16 @@ describe('App', () => {
         'Honorary Degree Recipients, 1748-2001'
       );
     });
+    test('navigating to princeton alumni memorial index', () => {
+      Object.defineProperty(window, 'location', {
+        value: new URL(
+          'https://library.princeton.edu/static_tables/princeton-alumni-weekly-memorial-index'
+        )
+      });
+      wrapper = mount(App);
+      expect(wrapper.find('.page-title').text()).toBe(
+        'Princeton Alumni Weekly Memorial Index, 1894-2011'
+      );
+    });
   });
 });
