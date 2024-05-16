@@ -35,7 +35,7 @@ export default {
               return row['Auction House'].trim();
             })
           )
-        ];
+        ].map(value => [value, value]);
       }
     },
     {
@@ -51,7 +51,9 @@ export default {
               return row.City.trim();
             })
           )
-        ].filter(c => c !== '');
+        ]
+          .filter(c => c !== '')
+          .map(value => [value, value]);
       }
     }
   ],

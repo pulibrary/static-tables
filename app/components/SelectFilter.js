@@ -7,7 +7,7 @@ export default {
               @change="handleChange"
               class="form-select">
           <option selected value="">- Any -</option>
-          <option v-for="option in options">{{option}}</option>
+          <option v-for="option in options" :value="option[0]">{{option[1]}}</option>
       </select>
       `,
   props: ['config', 'rows'],
