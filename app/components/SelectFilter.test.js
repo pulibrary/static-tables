@@ -31,7 +31,9 @@ describe('SelectFilter', () => {
       props: {
         config: {
           options_generator: rows => {
-            return rows.filter(row => row.startsWith('c'));
+            return rows
+              .filter(row => row.startsWith('c'))
+              .map(value => [value, value]);
           }
         },
         rows: ['cat', 'dog', 'cheetah']
@@ -49,17 +51,20 @@ describe('SelectFilter', () => {
       props: {
         config: {
           id: 'city',
-          options_generator: () => ['Option 1', 'Option 2']
+          options_generator: () => [
+            ['opt1', 'Option 1'],
+            ['opt2', 'Option 2']
+          ]
         },
         rows: []
       }
     });
 
-    wrapper.get('select').setValue('Option 2');
+    wrapper.get('select').setValue('opt2');
 
     expect(wrapper.emitted()['filterChange'].length).toEqual(1);
     expect(wrapper.emitted()['filterChange'][0]).toEqual([
-      { field: 'city', value: 'Option 2' }
+      { field: 'city', value: 'opt2' }
     ]);
   });
 });
