@@ -27,7 +27,7 @@ export default {
     //           return row['Auction House'].trim();
     //         })
     //       )
-    //     ];
+    //     ].map(value => [value, value]);
     //   }
     // }
   ],
