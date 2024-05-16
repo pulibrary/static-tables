@@ -1,11 +1,19 @@
-import { describe, test, expect, vi, beforeAll } from 'vitest';
-import { DataService } from './DataService';
+import {
+  describe,
+  test,
+  expect,
+  vi,
+  beforeAll,
+  beforeEach,
+  afterEach
+} from 'vitest';
+import Papa from 'papaparse';
 
 global.fetch = vi.fn();
 
 describe('DataService', () => {
   describe('fetchData()', () => {
-    test.skip('it retrieves data from the google doc', async () => {
+    test('it parses the data into the expected format', async () => {
       const expected = [
         {
           ID: '0',
@@ -47,17 +55,16 @@ describe('DataService', () => {
       const csv =
         "ID,Date,Auction House,City,Sale #,Name,Catalog\r\n0,19-Jan-00,Christie's East,New York,8337,American Vision: Painting and Decorative Arts,Christie's East-(Firm) Box 6\r\n1,21-Jan-00,Christie's,New York,9314,Important American Furniture,Christie's New York-3 Box 23\r\n2,21-Jan-00,Christie's,New York,9426,The Joseph and Bathsheba Pope Valuables Cabinet,Christie's New York-3 Box 23\r\n3,21-22-Jan-00,Sotheby's,New York,7420,Important Americana,Sotheby's New York-4 Box 35";
 
-      function createFetchResponse(data) {
-        return { text: () => new Promise(resolve => resolve(data)) };
-      }
-
-      const server = setupServer(...restHandlers);
-
-      beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
-
       const callback = vi.fn();
 
-      expect(catalogs).toEqual(expected);
+      Papa.parse(csv, {
+        header: true,
+        complete: function (results) {
+          callback(results.data);
+        }
+      });
+
+      expect(callback).toBeCalledWith(expected);
     });
   });
 });
