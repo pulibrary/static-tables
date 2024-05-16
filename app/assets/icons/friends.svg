@@ -6,6 +6,8 @@
     preserveAspectRatio="xMinYMid"
     aria-labelledby="logo-friends"
     role="img"
+    aria-hidden="true"
+    focusable="false"
   >
     <title id="logo-friends" lang="en">Friends of Princeton University Library</title>
     <g>

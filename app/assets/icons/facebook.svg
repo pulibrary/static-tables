@@ -6,6 +6,8 @@
   preserveAspectRatio="xMinYMid"
   aria-labelledby="logo-facebook"
   role="img"
+  aria-hidden="true"
+  focusable="false"
 >
   <title id="logo-facebook" lang="en">Facebook Logo</title>
   <g>

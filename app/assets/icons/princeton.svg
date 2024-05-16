@@ -6,6 +6,8 @@
     preserveAspectRatio="xMinYMid"
     aria-labelledby="logo-gov-docs"
     role="img"
+    aria-hidden="true"
+    focusable="false"
   >
     <title id="logo-gov-docs" lang="en">Government Docs Logo</title>
     <g>
