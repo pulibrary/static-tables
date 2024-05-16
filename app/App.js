@@ -1,10 +1,8 @@
 import Footer from './components/Footer.js';
 import Header from './components/Header.js';
 import PaginatedTable from './components/PaginatedTable.js';
-import DataColumns from './configs/DataColumns.js';
-import DataSources from './configs/DataSources.js';
-import DataMetadata from './configs/DataMetadata.js';
-import DataFilters from './configs/DataFilters.js';
+import Marquand from './configs/Marquand.js';
+import FacultyAndStaff from './configs/FacultyAndStaff.js';
 import marquandBannerUrl from './assets/images/marquand-banner_0.jpg';
 import { sortByDate } from './utilities/SortingUtilities.js';
 
@@ -28,20 +26,15 @@ export default {
   },
   computed: {
     metadataConfig() {
-      return DataMetadata[this.desiredRoute];
+      if (this.desiredRoute === 'marquand') {
+        return Marquand;
+      } else {
+        return FacultyAndStaff;
+      }
     },
     desiredRoute() {
       const routePath = window.location.pathname.split('/').pop();
       return routes[routePath] || routes['marquand'];
-    },
-    dataUrl() {
-      return DataSources[this.desiredRoute];
-    },
-    dataColumns() {
-      return DataColumns[this.desiredRoute];
-    },
-    dataFilters() {
-      return DataFilters[this.desiredRoute];
     },
     sorterMethod() {
       if (this.desiredRoute === 'marquand') {
@@ -62,11 +55,11 @@ export default {
       </div>
       <PaginatedTable
         :sorter="sorterMethod"
-        :dataUrl="dataUrl"
-        :dataColumns="dataColumns"
+        :dataUrl="metadataConfig.data_sources"
+        :dataColumns="metadataConfig.data_columns"
         :dataTableDescription="metadataConfig.description"
         :dataTableTitle="metadataConfig.table_title"
-        :dataFilters="dataFilters"
+        :dataFilters="metadataConfig.data_filters"
       ></PaginatedTable>
     </div>
     <Footer></Footer>`
