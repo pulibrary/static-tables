@@ -1,13 +1,25 @@
 export default {
-  data_columns: [['First Name', 'fname']],
+  data_columns: [
+    ['Last Name', 'lname'],
+    ['First Name', 'fname'],
+    ['Department', 'dept'],
+    ['Death Date', 'death'],
+    ['Departure from University', 'leave'],
+    ['Box Number', 'box']
+  ],
   data_filters: [
-    // {
-    //   id: '',
-    //   name: '',
-    //   type: '',
-    //   aria_label: '',
-    //   data_column: ''
-    // }
+    {
+      id: 'last-name',
+      name: 'Last Name',
+      type: 'text',
+      data_column: 'lname'
+    },
+    {
+      id: 'first-name',
+      name: 'First Name',
+      type: 'text',
+      data_column: 'fname'
+    }
   ],
   header_title: 'Faculty and Professional Staff',
   page_title: 'Faculty and Professional Staff Index, 1764-2006',
