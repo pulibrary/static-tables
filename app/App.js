@@ -3,13 +3,15 @@ import Header from './components/Header.js';
 import PaginatedTable from './components/PaginatedTable.js';
 import Marquand from './configs/Marquand.js';
 import FacultyAndStaff from './configs/FacultyAndStaff.js';
+import GraduateAlumniIndex from './configs/GraduateAlumniIndex.js';
 import marquandBannerUrl from './assets/images/marquand-banner_0.jpg';
 import { sortByDate } from './utilities/SortingUtilities.js';
 
 // prettier-ignore
 const routes = {
   'marquand': 'marquand',
-  'faculty-and-professional-staff-index': 'faculty_and_staff'
+  'faculty-and-professional-staff-index': 'faculty_and_staff',
+  'princeton-university-graduate-alumni-index': 'graduate_alumni_index'
 };
 
 export default {
@@ -26,10 +28,15 @@ export default {
   },
   computed: {
     metadataConfig() {
-      if (this.desiredRoute === 'marquand') {
-        return Marquand;
-      } else {
-        return FacultyAndStaff;
+      switch (this.desiredRoute) {
+        case 'marquand':
+          return Marquand;
+        case 'faculty_and_staff':
+          return FacultyAndStaff;
+        case 'graduate_alumni_index':
+          return GraduateAlumniIndex;
+        default:
+          return Marquand;
       }
     },
     desiredRoute() {
@@ -41,7 +48,7 @@ export default {
         return sortByDate;
       } else {
         return (a, b) => {
-          return -1;
+          return 1;
         };
       }
     }
