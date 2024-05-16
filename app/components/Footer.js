@@ -106,20 +106,16 @@ export default {
               </li>
               <li>
                 <a class="footer-icon" href="https://www.facebook.com/PULibrary">
-                  <img :src="facebook">
-                  <span class="visually-hidden">Facebook</span>
+                  <img alt="Facebook" :src="facebook">
                 </a>
                 <a class="footer-icon" href="http://twitter.com/PULibrary">
-                  <img :src="twitter">
-                  <span class="visually-hidden">Twitter</span>
+                  <img alt="Twitter" :src="twitter">
                 </a>
                 <a class="footer-icon" href="https://libguides.princeton.edu/usgovdocs">
-                  <img :src="princeton">
-                  <span class="visually-hidden">Princeton Government Documents Depository</span>
+                  <img alt="Government Documents Depository" :src="princeton">
                 </a>
                 <a class="footer-icon" href="">
-                  <img :src="friends">
-                  <span class="visually-hidden">Friends of the Library</span>
+                  <img alt="Friends of the Library" :src="friends">
                 </a>
               </li>
               <li>
