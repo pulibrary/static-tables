@@ -29,5 +29,16 @@ describe('App', () => {
         'Faculty and Professional Staff Index, 1764-2006'
       );
     });
+    test('navigating to honorary degrees page', () => {
+      Object.defineProperty(window, 'location', {
+        value: new URL(
+          'https://library.princeton.edu/static_tables/honorary-degree-index'
+        )
+      });
+      wrapper = mount(App);
+      expect(wrapper.find('.page-title').text()).toBe(
+        'Honorary Degree Recipients, 1748-2001'
+      );
+    });
   });
 });
