@@ -6,6 +6,8 @@
     preserveAspectRatio="xMinYMid"
     aria-labelledby="logo-twitter"
     role="img"
+    aria-hidden="true"
+    focusable="false"
   >
     <title id="logo-twitter" lang="en">Twitter Logo</title>
     <g>
