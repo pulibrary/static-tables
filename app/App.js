@@ -48,7 +48,10 @@ export default {
       }
     },
     desiredRoute() {
-      const routePath = window.location.pathname.split('/').pop();
+      const routePath = window.location.pathname
+        .split('/')
+        .filter(n => n)
+        .pop();
       return routes[routePath] || routes['marquand'];
     },
     sorterMethod() {
