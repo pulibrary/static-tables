@@ -7,5 +7,5 @@ export default defineConfig({
   server: {
     cors: false
   },
-  base: '/'
+  base: 'https://static-tables-staging.princeton.edu/'
 });
