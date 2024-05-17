@@ -55,7 +55,7 @@ export default {
       if (this.desiredRoute === 'marquand') {
         return sortByDate;
       } else {
-        return (a, b) => {
+        return () => {
           return 1;
         };
       }
