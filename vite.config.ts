@@ -5,13 +5,7 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
   plugins: [vue()],
   server: {
-    cors: {
-      origin: [
-        'https://library-staging.princeton.edu/',
-        'https://library.princeton.edu/'
-      ],
-      methods: ['GET', 'HEAD']
-    }
+    cors: false
   },
   base: 'https://static-tables-staging.princeton.edu/'
 });
