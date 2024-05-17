@@ -13,7 +13,7 @@ export default {
       </thead>
       <tbody>
         <tr v-for="row in rows">
-          <td v-for="column in columns" scope="row">{{row[column[1]]}}</td>
+          <td v-for="column in columns">{{row[column[1]]}}</td>
         </tr>
       </tbody>
     </table>`
