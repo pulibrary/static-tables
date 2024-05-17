@@ -51,5 +51,16 @@ describe('App', () => {
         'Princeton Alumni Weekly Memorial Index, 1894-2011'
       );
     });
+    test('it works with a slash at the end', () => {
+      Object.defineProperty(window, 'location', {
+        value: new URL(
+          'https://library.princeton.edu/princeton-alumni-weekly-memorial-index/'
+        )
+      });
+      wrapper = mount(App);
+      expect(wrapper.find('.page-title').text()).toBe(
+        'Princeton Alumni Weekly Memorial Index, 1894-2011'
+      );
+    });
   });
 });
