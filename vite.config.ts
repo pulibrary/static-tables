@@ -9,7 +9,8 @@ export default defineConfig({
       origin: [
         'https://library-staging.princeton.edu/',
         'https://library.princeton.edu/'
-      ]
+      ],
+      methods: ['GET', 'HEAD']
     }
   },
   base: 'https://static-tables-staging.princeton.edu/'
