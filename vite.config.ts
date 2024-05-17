@@ -7,5 +7,5 @@ export default defineConfig({
   server: {
     cors: false
   },
-  base: 'https://static-tables-staging.princeton.edu/'
+  base: process.env.VITE_STATIC_TABLES_BASE_PATH
 });
