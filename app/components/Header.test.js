@@ -10,7 +10,7 @@ describe('Header', () => {
       }
     });
 
-    expect(wrapper.get('.header-title').text()).toEqual(
+    expect(wrapper.get('a.lux-app-name').text()).toEqual(
       'Marquand Sales Catalogs'
     );
   });

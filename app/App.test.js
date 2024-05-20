@@ -13,7 +13,7 @@ describe('App', () => {
     );
   }),
     test('header title', () => {
-      expect(wrapper.find('.header-title').text()).toBe(
+      expect(wrapper.find('a.lux-app-name').text()).toBe(
         'Marquand Sales Catalogs'
       );
     });
