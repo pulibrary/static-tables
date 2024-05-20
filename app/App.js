@@ -52,8 +52,8 @@ export default {
       return routes[routePath] || routes['marquand'];
     },
     sorterMethod() {
-      if (this.metadataConfig.sorterMethod) {
-        return this.metadataConfig.sorterMethod;
+      if (this.metadataConfig.sorter_method) {
+        return this.metadataConfig.sorter_method;
       } else {
         return () => {
           return 1;
