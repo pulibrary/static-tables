@@ -17,63 +17,68 @@ describe('App', () => {
         'Marquand Sales Catalogs'
       );
     });
-  describe('Routing', () => {
-    test('changing page title by url', () => {
-      Object.defineProperty(window, 'location', {
-        value: new URL(
-          'https://library.princeton.edu/static_tables/faculty-and-professional-staff-index'
-        )
-      });
-      wrapper = mount(App);
-      expect(wrapper.find('.page-title').text()).toBe(
-        'Faculty and Professional Staff Index, 1764-2006'
-      );
+  describe('Accessibility', () => {
+    test('heading levels', () => {
+      expect(wrapper.find('h1').exists()).toBe(true);
     });
-    test('navigating to honorary degrees page', () => {
-      Object.defineProperty(window, 'location', {
-        value: new URL(
-          'https://library.princeton.edu/static_tables/honorary-degree-index'
-        )
+  }),
+    describe('Routing', () => {
+      test('changing page title by url', () => {
+        Object.defineProperty(window, 'location', {
+          value: new URL(
+            'https://library.princeton.edu/static_tables/faculty-and-professional-staff-index'
+          )
+        });
+        wrapper = mount(App);
+        expect(wrapper.find('.page-title').text()).toBe(
+          'Faculty and Professional Staff Index, 1764-2006'
+        );
       });
-      wrapper = mount(App);
-      expect(wrapper.find('.page-title').text()).toBe(
-        'Honorary Degree Recipients, 1748-2001'
-      );
-    });
-    test('navigating to princeton alumni memorial index', () => {
-      Object.defineProperty(window, 'location', {
-        value: new URL(
-          'https://library.princeton.edu/static_tables/princeton-alumni-weekly-memorial-index'
-        )
+      test('navigating to honorary degrees page', () => {
+        Object.defineProperty(window, 'location', {
+          value: new URL(
+            'https://library.princeton.edu/static_tables/honorary-degree-index'
+          )
+        });
+        wrapper = mount(App);
+        expect(wrapper.find('.page-title').text()).toBe(
+          'Honorary Degree Recipients, 1748-2001'
+        );
       });
-      wrapper = mount(App);
-      expect(wrapper.find('.page-title').text()).toBe(
-        'Princeton Alumni Weekly Memorial Index, 1894-2011'
-      );
-    });
-    test('navigating to world war II memorial index', () => {
-      Object.defineProperty(window, 'location', {
-        value: new URL(
-          'https://library.princeton.edu/static_tables/world-war-ii-memorial-book'
-        )
+      test('navigating to princeton alumni memorial index', () => {
+        Object.defineProperty(window, 'location', {
+          value: new URL(
+            'https://library.princeton.edu/static_tables/princeton-alumni-weekly-memorial-index'
+          )
+        });
+        wrapper = mount(App);
+        expect(wrapper.find('.page-title').text()).toBe(
+          'Princeton Alumni Weekly Memorial Index, 1894-2011'
+        );
       });
-      wrapper = mount(App);
-      expect(wrapper.find('.page-title').text()).toBe(
-        'World War II Memorial Book'
-      );
-    });
-    test('it works with a slash at the end', () => {
-      Object.defineProperty(window, 'location', {
-        value: new URL(
-          'https://library.princeton.edu/princeton-alumni-weekly-memorial-index/'
-        )
+      test('navigating to world war II memorial index', () => {
+        Object.defineProperty(window, 'location', {
+          value: new URL(
+            'https://library.princeton.edu/static_tables/world-war-ii-memorial-book'
+          )
+        });
+        wrapper = mount(App);
+        expect(wrapper.find('.page-title').text()).toBe(
+          'World War II Memorial Book'
+        );
       });
-      wrapper = mount(App);
-      expect(wrapper.find('.page-title').text()).toBe(
-        'Princeton Alumni Weekly Memorial Index, 1894-2011'
-      );
+      test('it works with a slash at the end', () => {
+        Object.defineProperty(window, 'location', {
+          value: new URL(
+            'https://library.princeton.edu/princeton-alumni-weekly-memorial-index/'
+          )
+        });
+        wrapper = mount(App);
+        expect(wrapper.find('.page-title').text()).toBe(
+          'Princeton Alumni Weekly Memorial Index, 1894-2011'
+        );
+      });
     });
-  });
   describe('Banner', () => {
     test('Shows a banner when there is a banner_url', () => {
       Object.defineProperty(window, 'location', {

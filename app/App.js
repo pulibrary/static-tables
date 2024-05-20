@@ -31,7 +31,7 @@ export default {
     <div class="container">
       <div class="container">
         <img v-if="bannerUrl" :src="bannerUrl" class="img-fluid banner" width="1200" height="265" alt="geometric pattern" />
-        <h2 class="page-title bg-black text-white">{{ metadataConfig.page_title }}</h2>
+        <h1 class="page-title bg-black text-white">{{ metadataConfig.page_title }}</h1>
       </div>
       <PaginatedTable
         :sorter="sorterMethod"
