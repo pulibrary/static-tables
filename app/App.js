@@ -6,6 +6,7 @@ import FacultyAndStaff from './configs/FacultyAndStaff.js';
 import GraduateAlumniIndex from './configs/GraduateAlumniIndex.js';
 import HonoraryDegree from './configs/HonoraryDegree.js';
 import PrincetonAlumniMemorial from './configs/PrincetonAlumniMemorial.js';
+import TrusteeIndex from './configs/TrusteeIndex.js';
 import marquandBannerUrl from './assets/images/marquand-banner_0.jpg';
 import { sortByDate } from './utilities/SortingUtilities.js';
 
@@ -15,7 +16,8 @@ const routes = {
   'faculty-and-professional-staff-index': 'faculty_and_staff',
   'princeton-university-graduate-alumni-index': 'graduate_alumni_index',
   'honorary-degree-index': 'honorary_degree',
-  'princeton-alumni-weekly-memorial-index': 'princeton_alumni_memorial'
+  'princeton-alumni-weekly-memorial-index': 'princeton_alumni_memorial',
+  'trustee-index-1746-2001': 'trustee_index'
 };
 
 export default {
@@ -43,6 +45,8 @@ export default {
           return HonoraryDegree;
         case 'princeton_alumni_memorial':
           return PrincetonAlumniMemorial;
+        case 'trustee_index':
+          return TrusteeIndex;
         default:
           return Marquand;
       }
