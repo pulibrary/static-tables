@@ -1,8 +1,6 @@
 import { describe, test, expect, vi } from 'vitest';
 import Papa from 'papaparse';
 
-global.fetch = vi.fn();
-
 describe('DataService', () => {
   describe('fetchData()', () => {
     test('it parses the data into the expected format', async () => {

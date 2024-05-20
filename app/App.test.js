@@ -63,4 +63,24 @@ describe('App', () => {
       );
     });
   });
+  describe('Banner', () => {
+    test('Shows a banner when there is a banner_url', () => {
+      Object.defineProperty(window, 'location', {
+        value: new URL('https://library.princeton.edu/static_tables/marquand')
+      });
+      wrapper = mount(App);
+      expect(wrapper.find('.banner').exists()).toBeTruthy();
+    });
+  });
+  describe('Banner', () => {
+    test('Does not shows a banner when there is not a banner_url', () => {
+      Object.defineProperty(window, 'location', {
+        value: new URL(
+          'https://library.princeton.edu/static_tables/honorary-degree-index'
+        )
+      });
+      wrapper = mount(App);
+      expect(wrapper.find('.banner').exists()).toBeFalsy();
+    });
+  });
 });

@@ -1,3 +1,5 @@
+import marquandBannerUrl from '../assets/images/marquand-banner_0.jpg';
+
 export default {
   data_columns: [
     ['Date', 'Date'],
@@ -65,5 +67,6 @@ export default {
                 These require 1-2 business days' notice at least and up to a week if many catalogs are needed. Marquand has many more catalogs from c. 1820s-1990s for more than 250 auction houses, both cataloged and un-cataloged. \
                 Book and coin sales, unless mixed content, are handled by Special Collections in Firestone Library.</p>`,
   data_sources:
-    'https://docs.google.com/spreadsheets/d/e/2PACX-1vRJirkpoJFVLXjXLkA2pe70Q6sIS5WrpUjcJuvIW69BkYb9d-yQzypsBmyiOYzjQbrj01Pa8pgXJhLh/pub?output=csv'
+    'https://docs.google.com/spreadsheets/d/e/2PACX-1vRJirkpoJFVLXjXLkA2pe70Q6sIS5WrpUjcJuvIW69BkYb9d-yQzypsBmyiOYzjQbrj01Pa8pgXJhLh/pub?output=csv',
+  banner_url: marquandBannerUrl
 };
