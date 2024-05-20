@@ -6,7 +6,6 @@ import FacultyAndStaff from './configs/FacultyAndStaff.js';
 import GraduateAlumniIndex from './configs/GraduateAlumniIndex.js';
 import HonoraryDegree from './configs/HonoraryDegree.js';
 import PrincetonAlumniMemorial from './configs/PrincetonAlumniMemorial.js';
-import marquandBannerUrl from './assets/images/marquand-banner_0.jpg';
 import { sortByDate } from './utilities/SortingUtilities.js';
 
 // prettier-ignore
@@ -24,11 +23,6 @@ export default {
     PaginatedTable,
     Header,
     Footer
-  },
-  data() {
-    return {
-      bannerUrl: marquandBannerUrl
-    };
   },
   computed: {
     metadataConfig() {
@@ -62,13 +56,16 @@ export default {
           return 1;
         };
       }
+    },
+    bannerUrl() {
+      return this.metadataConfig.banner_url || null;
     }
   },
   template: `
     <Header :title="metadataConfig.header_title"></Header>
     <div class="container">
       <div class="container">
-        <img :src="bannerUrl" class="img-fluid" width="1200" height="265" alt="geometric pattern" />
+        <img v-if="bannerUrl" :src="bannerUrl" class="img-fluid banner" width="1200" height="265" alt="geometric pattern" />
         <h2 class="page-title bg-black text-white">{{ metadataConfig.page_title }}</h2>
       </div>
       <PaginatedTable
