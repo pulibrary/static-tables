@@ -28,19 +28,21 @@ export default {
   },
   template: `
     <Header :title="metadataConfig.header_title"></Header>
-    <div class="container">
+    <main role="main">
       <div class="container">
-        <img v-if="bannerUrl" :src="bannerUrl" class="img-fluid banner" width="1200" height="265" alt="geometric pattern" />
-        <h1 class="page-title bg-black text-white">{{ metadataConfig.page_title }}</h1>
+        <div class="container">
+          <img v-if="bannerUrl" :src="bannerUrl" class="img-fluid banner" width="1200" height="265" alt="geometric pattern" />
+          <h1 class="page-title bg-black text-white">{{ metadataConfig.page_title }}</h1>
+        </div>
+        <PaginatedTable
+          :sorter="sorterMethod"
+          :dataUrl="metadataConfig.data_sources"
+          :dataColumns="metadataConfig.data_columns"
+          :dataTableDescription="metadataConfig.description"
+          :dataTableTitle="metadataConfig.table_title"
+          :dataFilters="metadataConfig.data_filters"
+        ></PaginatedTable>
       </div>
-      <PaginatedTable
-        :sorter="sorterMethod"
-        :dataUrl="metadataConfig.data_sources"
-        :dataColumns="metadataConfig.data_columns"
-        :dataTableDescription="metadataConfig.description"
-        :dataTableTitle="metadataConfig.table_title"
-        :dataFilters="metadataConfig.data_filters"
-      ></PaginatedTable>
-    </div>
+    </main>
     <Footer></Footer>`
 };
