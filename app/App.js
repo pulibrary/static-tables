@@ -10,7 +10,7 @@ import TrusteeIndex from './configs/TrusteeIndex.js';
 
 // prettier-ignore
 const routes = {
-  'marquand': 'marquand',
+  'marquand-catalogs': 'marquand',
   'faculty-and-professional-staff-index': 'faculty_and_staff',
   'princeton-university-graduate-alumni-index': 'graduate_alumni_index',
   'honorary-degree-index': 'honorary_degree',
