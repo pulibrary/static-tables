@@ -11,28 +11,54 @@ describe('App', () => {
     expect(wrapper.find('.page-title').text()).toBe(
       'Marquand Library of Art and Archaeology'
     );
-  }),
-    test('header title', () => {
-      expect(wrapper.find('a.lux-app-name').text()).toBe(
-        'Marquand Sales Catalogs'
-      );
-    });
+  });
+  test('header title', () => {
+    expect(wrapper.find('a.lux-app-name').text()).toBe(
+      'Marquand Sales Catalogs'
+    );
+  });
+  test('sorterMethod defaults to marquand date sorter', () => {
+    const unsortedData = [
+      { Date: '25-May-23' },
+      { Date: '11-17-Oct-22' },
+      { Date: '23-24-Jan-20' }
+    ];
+    const sortedData = [
+      { Date: '25-May-23' },
+      { Date: '11-17-Oct-22' },
+      { Date: '23-24-Jan-20' }
+    ];
+
+    expect(unsortedData.sort(wrapper.vm.sorterMethod)).toEqual(sortedData);
+  });
   describe('Accessibility', () => {
     test('heading levels', () => {
       expect(wrapper.find('h1').exists()).toBe(true);
     });
   }),
     describe('Routing', () => {
-      test('changing page title by url', () => {
-        Object.defineProperty(window, 'location', {
-          value: new URL(
-            'https://library.princeton.edu/static_tables/faculty-and-professional-staff-index'
-          )
+      describe('faculty and professional index', () => {
+        beforeEach(() => {
+          Object.defineProperty(window, 'location', {
+            value: new URL(
+              'https://library.princeton.edu/static_tables/faculty-and-professional-staff-index'
+            )
+          });
+          wrapper = mount(App);
         });
-        wrapper = mount(App);
-        expect(wrapper.find('.page-title').text()).toBe(
-          'Faculty and Professional Staff Index, 1764-2006'
-        );
+        test('it shows the faculty and professional title', () => {
+          expect(wrapper.find('.page-title').text()).toBe(
+            'Faculty and Professional Staff Index, 1764-2006'
+          );
+        });
+        test('sorterMethod sorts by last name', () => {
+          const unsortedData = [{ lname: 'A' }, { lname: 'C' }, { lname: 'B' }];
+          const sortedData = [{ lname: 'A' }, { lname: 'B' }, { lname: 'C' }];
+
+          expect(unsortedData.sort(wrapper.vm.sorterMethod)).toEqual(
+            sortedData
+          );
+        });
       });
       test('navigating to honorary degrees page', () => {
         Object.defineProperty(window, 'location', {
