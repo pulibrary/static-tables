@@ -1,3 +1,5 @@
+import siteBannerUrl from '../assets/images/marquand-banner_0.jpg'; // This should be the relative path to the image asset
+
 export default {
   // An array of two-item arrays. The inner arrays should have ['HeaderForDisplay', 'HeaderOnCsv']
   // for example ['First Name', 'fname']
@@ -35,5 +37,6 @@ export default {
   page_title: '', // title for page
   table_title: '', // title for table
   description: ``, // description for table - can include html tags
-  data_sources: '' // link to google sheet with /pub?output=csv at the end
+  data_sources: '', // link to google sheet with /pub?output=csv at the end
+  banner_url: siteBannerUrl // See import at the top
 };
