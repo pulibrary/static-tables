@@ -13,7 +13,7 @@ describe('App', () => {
     );
   }),
     test('header title', () => {
-      expect(wrapper.find('.header-title').text()).toBe(
+      expect(wrapper.find('a.lux-app-name').text()).toBe(
         'Marquand Sales Catalogs'
       );
     });
@@ -49,6 +49,17 @@ describe('App', () => {
       wrapper = mount(App);
       expect(wrapper.find('.page-title').text()).toBe(
         'Princeton Alumni Weekly Memorial Index, 1894-2011'
+      );
+    });
+    test('navigating to world war II memorial index', () => {
+      Object.defineProperty(window, 'location', {
+        value: new URL(
+          'https://library.princeton.edu/static_tables/world-war-ii-memorial-book'
+        )
+      });
+      wrapper = mount(App);
+      expect(wrapper.find('.page-title').text()).toBe(
+        'World War II Memorial Book'
       );
     });
     test('it works with a slash at the end', () => {
