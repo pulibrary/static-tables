@@ -60,7 +60,7 @@ export default {
       }
     }
   ],
-  sorter_method: sortByDate,
+  sorterMethod: sortByDate,
   header_title: 'Marquand Sales Catalogs',
   page_title: 'Marquand Library of Art and Archaeology',
   table_title: 'Browse Sales Catalogs',
