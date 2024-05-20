@@ -1,4 +1,5 @@
 import SharedConfig from './Shared';
+import { sortByName } from '../utilities/SortingUtilities';
 
 export default {
   data_columns: [
@@ -32,6 +33,7 @@ export default {
       }
     }
   ],
+  sorter_method: sortByName,
   header_title: 'Faculty and Professional Staff',
   page_title: 'Faculty and Professional Staff Index, 1764-2006',
   table_title: 'Browse Faculty and Professional Staff',

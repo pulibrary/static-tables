@@ -17,6 +17,15 @@ export function sortByDate(a, b) {
   }
 }
 
+export function sortByName(a, b) {
+  const lastNameMatch = a.lname.localeCompare(b.lname);
+  if (lastNameMatch != 0) {
+    return lastNameMatch;
+  } else {
+    return a.fname.localeCompare(b.fname);
+  }
+}
+
 function buildDateString(matches) {
   const months = {
     Jan: '01',

@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { sortByDate } from './SortingUtilities';
+import { sortByDate, sortByName } from './SortingUtilities';
 
 describe('SortingUtilities', () => {
   describe('sortByDate()', () => {
@@ -28,6 +28,23 @@ describe('SortingUtilities', () => {
       ];
 
       expect(unsortedData.sort(sortByDate)).toEqual(sortedData);
+    });
+  });
+  describe('sortByName()', () => {
+    test('it sorts by last then first name', () => {
+      const unsortedData = [
+        { lname: 'Fox', fname: 'Jeanne M.' },
+        { lname: 'Fernandez-Cifuentes', fname: 'Luis' },
+        { lname: 'Freeland', fname: 'Stephen John' },
+        { lname: 'Fox', fname: 'Annette B.' }
+      ];
+      const sortedData = [
+        { lname: 'Fernandez-Cifuentes', fname: 'Luis' },
+        { lname: 'Fox', fname: 'Annette B.' },
+        { lname: 'Fox', fname: 'Jeanne M.' },
+        { lname: 'Freeland', fname: 'Stephen John' }
+      ];
+      expect(unsortedData.sort(sortByName)).toEqual(sortedData);
     });
   });
 });
