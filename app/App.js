@@ -7,6 +7,7 @@ import GraduateAlumniIndex from './configs/GraduateAlumniIndex.js';
 import HonoraryDegree from './configs/HonoraryDegree.js';
 import PrincetonAlumniMemorial from './configs/PrincetonAlumniMemorial.js';
 import TrusteeIndex from './configs/TrusteeIndex.js';
+import UndergradAlumniIndexPart1 from './configs/UndergradAlumniIndexPart1.js';
 
 // prettier-ignore
 const routes = {
@@ -15,7 +16,8 @@ const routes = {
   'princeton-university-graduate-alumni-index': 'graduate_alumni_index',
   'honorary-degree-index': 'honorary_degree',
   'princeton-alumni-weekly-memorial-index': 'princeton_alumni_memorial',
-  'trustee-index-1746-2001': 'trustee_index'
+  'trustee-index-1746-2001': 'trustee_index',
+  'undergraduate-alumni-index-part-1': 'undergrad_alumni_index_part_1'
 };
 
 export default {
@@ -40,6 +42,8 @@ export default {
           return PrincetonAlumniMemorial;
         case 'trustee_index':
           return TrusteeIndex;
+        case 'undergrad_alumni_index_part_1':
+          return UndergradAlumniIndexPart1;
         default:
           return Marquand;
       }
