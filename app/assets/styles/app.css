@@ -24,6 +24,10 @@
   margin: 0;
 }
 
+.page-title {
+  font-size: calc(1.325rem + .9vw);
+}
+
 footer {
   padding-bottom: 16px;
 }
