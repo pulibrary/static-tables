@@ -7,7 +7,6 @@ import GraduateAlumniIndex from './configs/GraduateAlumniIndex.js';
 import HonoraryDegree from './configs/HonoraryDegree.js';
 import PrincetonAlumniMemorial from './configs/PrincetonAlumniMemorial.js';
 import TrusteeIndex from './configs/TrusteeIndex.js';
-import { sortByDate } from './utilities/SortingUtilities.js';
 
 // prettier-ignore
 const routes = {
@@ -53,8 +52,8 @@ export default {
       return routes[routePath] || routes['marquand'];
     },
     sorterMethod() {
-      if (this.desiredRoute === 'marquand') {
-        return sortByDate;
+      if (this.metadataConfig.sorterMethod) {
+        return this.metadataConfig.sorterMethod;
       } else {
         return () => {
           return 1;

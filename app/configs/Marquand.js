@@ -1,4 +1,5 @@
 import marquandBannerUrl from '../assets/images/marquand-banner_0.jpg';
+import { sortByDate } from '../utilities/SortingUtilities.js';
 
 export default {
   data_columns: [
@@ -59,6 +60,7 @@ export default {
       }
     }
   ],
+  sorter_method: sortByDate,
   header_title: 'Marquand Sales Catalogs',
   page_title: 'Marquand Library of Art and Archaeology',
   table_title: 'Browse Sales Catalogs',
