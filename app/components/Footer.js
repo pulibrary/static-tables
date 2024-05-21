@@ -94,7 +94,7 @@ export default {
             </ul>
           </div>
           <div class="col-md-3 mt-3">
-            <h6 class="fw-bold" href="https://library.princeton.edu/about">Princeton University Library</h6>
+            <a class="text-reset text-decoration-none fw-bold" href="https://library.princeton.edu">Princeton University Library</a>
             <ul class="link-list">
               <li class="mt-0">
                 <a class="text-reset text-decoration-none" href="https://library.princeton.edu/collections-and-collection-development">Collections and Collecting</a>
