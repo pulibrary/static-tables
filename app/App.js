@@ -28,7 +28,7 @@ export default {
   },
   template: `
     <Header :title="metadataConfig.header_title"></Header>
-    <main role="main">
+    <main>
       <div class="container">
         <div class="container">
           <img v-if="bannerUrl" :src="bannerUrl" class="img-fluid banner" width="1200" height="265" alt="geometric pattern" />

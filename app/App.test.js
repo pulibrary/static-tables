@@ -35,27 +35,25 @@ describe('App', () => {
     test('heading levels', () => {
       expect(wrapper.find('h1').exists()).toBe(true);
     });
-  }),
-    describe('Accessibility', () => {
     test('main content', () => {
       expect(wrapper.find('main').exists()).toBe(true);
-      expect(wrapper.find('[role="main"]').exists()).toBe(true);
+      expect(wrapper.findAll('main').length).toBe(1);
     });
   }),
     describe('Routing', () => {
-        describe('faculty and professional index', () => {
+      describe('faculty and professional index', () => {
         beforeEach(() => {
-            Object.defineProperty(window, 'location', {
-              value: new URL(
-                'https://library.princeton.edu/static_tables/faculty-and-professional-staff-index'
-              )
-            });
-            wrapper = mount(App);
+          Object.defineProperty(window, 'location', {
+            value: new URL(
+              'https://library.princeton.edu/static_tables/faculty-and-professional-staff-index'
+            )
+          });
+          wrapper = mount(App);
         });
         test('it shows the faculty and professional title', () => {
-            expect(wrapper.find('.page-title').text()).toBe(
-              'Faculty and Professional Staff Index, 1764-2006'
-            );
+          expect(wrapper.find('.page-title').text()).toBe(
+            'Faculty and Professional Staff Index, 1764-2006'
+          );
         });
         test('sorterMethod sorts by last name', () => {
           const unsortedData = [{ lname: 'A' }, { lname: 'C' }, { lname: 'B' }];
@@ -65,52 +63,52 @@ describe('App', () => {
             sortedData
           );
         });
-        });
-        test('navigating to honorary degrees page', () => {
-          Object.defineProperty(window, 'location', {
-            value: new URL(
-              'https://library.princeton.edu/static_tables/honorary-degree-index'
-            )
-          });
-          wrapper = mount(App);
-          expect(wrapper.find('.page-title').text()).toBe(
-            'Honorary Degree Recipients, 1748-2001'
-          );
-        });
-        test('navigating to princeton alumni memorial index', () => {
-          Object.defineProperty(window, 'location', {
-            value: new URL(
-              'https://library.princeton.edu/static_tables/princeton-alumni-weekly-memorial-index'
-            )
-          });
-          wrapper = mount(App);
-          expect(wrapper.find('.page-title').text()).toBe(
-            'Princeton Alumni Weekly Memorial Index, 1894-2011'
-          );
-        });
-        test('navigating to world war II memorial index', () => {
-          Object.defineProperty(window, 'location', {
-            value: new URL(
-              'https://library.princeton.edu/static_tables/world-war-ii-memorial-book'
-            )
-          });
-          wrapper = mount(App);
-          expect(wrapper.find('.page-title').text()).toBe(
-            'World War II Memorial Book'
-          );
-        });
-        test('it works with a slash at the end', () => {
-          Object.defineProperty(window, 'location', {
-            value: new URL(
-              'https://library.princeton.edu/princeton-alumni-weekly-memorial-index/'
-            )
-          });
-          wrapper = mount(App);
-          expect(wrapper.find('.page-title').text()).toBe(
-            'Princeton Alumni Weekly Memorial Index, 1894-2011'
-          );
-        });
       });
+      test('navigating to honorary degrees page', () => {
+        Object.defineProperty(window, 'location', {
+          value: new URL(
+            'https://library.princeton.edu/static_tables/honorary-degree-index'
+          )
+        });
+        wrapper = mount(App);
+        expect(wrapper.find('.page-title').text()).toBe(
+          'Honorary Degree Recipients, 1748-2001'
+        );
+      });
+      test('navigating to princeton alumni memorial index', () => {
+        Object.defineProperty(window, 'location', {
+          value: new URL(
+            'https://library.princeton.edu/static_tables/princeton-alumni-weekly-memorial-index'
+          )
+        });
+        wrapper = mount(App);
+        expect(wrapper.find('.page-title').text()).toBe(
+          'Princeton Alumni Weekly Memorial Index, 1894-2011'
+        );
+      });
+      test('navigating to world war II memorial index', () => {
+        Object.defineProperty(window, 'location', {
+          value: new URL(
+            'https://library.princeton.edu/static_tables/world-war-ii-memorial-book'
+          )
+        });
+        wrapper = mount(App);
+        expect(wrapper.find('.page-title').text()).toBe(
+          'World War II Memorial Book'
+        );
+      });
+      test('it works with a slash at the end', () => {
+        Object.defineProperty(window, 'location', {
+          value: new URL(
+            'https://library.princeton.edu/princeton-alumni-weekly-memorial-index/'
+          )
+        });
+        wrapper = mount(App);
+        expect(wrapper.find('.page-title').text()).toBe(
+          'Princeton Alumni Weekly Memorial Index, 1894-2011'
+        );
+      });
+    });
   describe('Banner', () => {
     test('Shows a banner when there is a banner_url', () => {
       Object.defineProperty(window, 'location', {
@@ -119,8 +117,6 @@ describe('App', () => {
       wrapper = mount(App);
       expect(wrapper.find('.banner').exists()).toBeTruthy();
     });
-  });
-  describe('Banner', () => {
     test('Does not shows a banner when there is not a banner_url', () => {
       Object.defineProperty(window, 'location', {
         value: new URL(
