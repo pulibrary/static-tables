@@ -38,6 +38,10 @@ describe('App', () => {
     test('heading levels', () => {
       expect(wrapper.find('h1').exists()).toBe(true);
     });
+    test('main content', () => {
+      expect(wrapper.find('main').exists()).toBe(true);
+      expect(wrapper.findAll('main').length).toBe(1);
+    });
   }),
     describe('Routing', () => {
       describe('faculty and professional index', () => {
@@ -116,8 +120,6 @@ describe('App', () => {
       wrapper = mount(App);
       expect(wrapper.find('.banner').exists()).toBeTruthy();
     });
-  });
-  describe('Banner', () => {
     test('Does not shows a banner when there is not a banner_url', () => {
       Object.defineProperty(window, 'location', {
         value: new URL(
