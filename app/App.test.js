@@ -17,6 +17,9 @@ describe('App', () => {
       'Marquand Sales Catalogs'
     );
   });
+  test('It has a footer', () => {
+    expect(wrapper.find('#app > div.lux-library-footer')).toBeTruthy;
+  });
   test('sorterMethod defaults to marquand date sorter', () => {
     const unsortedData = [
       { Date: '25-May-23' },
