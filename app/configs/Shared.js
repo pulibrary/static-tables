@@ -43,5 +43,21 @@ export default {
     ['STA', 'Statistics Department'],
     ['THE', 'Theatre Department'],
     ['WWS', 'Princeton School of Public and International Affairs']
-  ]
+  ],
+  // A function that returns another function, suitable for use
+  // as an options_generator
+  valuesFromColumn: column => {
+    return rows => {
+      return [
+        ...new Set(
+          rows.map(row => {
+            return row[column].trim();
+          })
+        )
+      ]
+        .filter(c => c !== '')
+        .map(value => [value, value])
+        .sort();
+    };
+  }
 };

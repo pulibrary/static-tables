@@ -1,6 +1,7 @@
 import Marquand from './Marquand.js';
 import FacultyAndStaff from './FacultyAndStaff.js';
 import GraduateAlumniIndex from './GraduateAlumniIndex.js';
+import HistoricalPhotographCollection from './HistoricalPhotographCollection.js';
 import HonoraryDegree from './HonoraryDegree.js';
 import PrincetonAlumniMemorial from './PrincetonAlumniMemorial.js';
 import TrusteeIndex from './TrusteeIndex.js';
@@ -14,6 +15,8 @@ export default {
   'princeton-university-graduate-alumni-index': GraduateAlumniIndex,
   'honorary-degree-index': HonoraryDegree,
   'princeton-alumni-weekly-memorial-index': PrincetonAlumniMemorial,
+  'princeton-university-historical-photograph-collection':
+    HistoricalPhotographCollection,
   'trustee-index-1746-2001': TrusteeIndex,
   'undergraduate-alumni-index-part-1': UndergradAlumniIndexPart1,
   'undergraduate-alumni-index-part-2': UndergradAlumniIndexPart2,
