@@ -45,6 +45,15 @@ class Filter {
       );
     } else if (this.type === 'select') {
       return this.value === '' || row[this.data_column] === this.value;
+    } else if (this.type === 'boolean_text') {
+      const values = [this.value[0], this.value[1]];
+      const first_value_matches =
+        row[this.data_column].toLowerCase().indexOf(values[0].toLowerCase()) !==
+        -1;
+      const second_value_matches =
+        row[this.data_column].toLowerCase().indexOf(values[1].toLowerCase()) !==
+        -1;
+      return first_value_matches && second_value_matches;
     } else {
       return false;
     }

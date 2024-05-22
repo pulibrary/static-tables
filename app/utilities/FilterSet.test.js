@@ -38,17 +38,10 @@ describe('FilterSet', () => {
   describe('boolean search', () => {
     const filterSet = new FilterSet([
       {
-        id: 'subject_one',
+        id: 'grouped_search',
         name: 'Subject',
-        type: 'text',
-        aria_label: 'Subject for search',
-        data_column: 'subject'
-      },
-      {
-        id: 'subject_two',
-        name: 'Subject',
-        type: 'text',
-        aria_label: 'Subject for search',
+        type: 'boolean_text',
+        aria_label: 'Subject filters',
         data_column: 'subject'
       }
     ]);
@@ -75,8 +68,7 @@ describe('FilterSet', () => {
       }
     ];
     test('you can do AND searches', () => {
-      filterSet.setValue('subject_one', 'bath');
-      filterSet.setValue('subject_two', 'house');
+      filterSet.setValue('grouped_search', ['bath', 'house']);
       const filtered = filterSet.filterRows(rows);
       expect(filtered.length).toEqual(2);
       expect(filtered[0].subject).toEqual(

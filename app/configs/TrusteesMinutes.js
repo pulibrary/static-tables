@@ -11,6 +11,13 @@ export default {
   // optional function: options_generator
   data_filters: [
     {
+      id: 'monster_subject',
+      name: 'Subject',
+      type: 'boolean_text',
+      aria_label: 'Subject filters',
+      data_column: 'subject'
+    },
+    {
       id: 'subject_one',
       name: 'Subject',
       type: 'text',
