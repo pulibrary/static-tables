@@ -1,7 +1,7 @@
 import { LuxLibraryFooter } from 'lux-design-system';
 
 export default {
-  name: 'Header',
+  name: 'Footer',
   template: `
     <LuxLibraryFooter></LuxLibraryFooter>`,
   components: {
