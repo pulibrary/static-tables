@@ -35,4 +35,62 @@ describe('FilterSet', () => {
       'American Vision: Painting and Decorative Arts'
     );
   });
+  describe('boolean search', () => {
+    const filterSet = new FilterSet([
+      {
+        id: 'subject_one',
+        name: 'Subject',
+        type: 'text',
+        aria_label: 'Subject for search',
+        data_column: 'subject'
+      },
+      {
+        id: 'subject_two',
+        name: 'Subject',
+        type: 'text',
+        aria_label: 'Subject for search',
+        data_column: 'subject'
+      }
+    ]);
+
+    const rows = [
+      {
+        id: '381',
+        subject: 'Appropriation, to Com. on Bathhouse & c.',
+        volume: 'Volume 4',
+        page: 'Page 11'
+      },
+      {
+        id: '548',
+        subject:
+          'Bath & Wash House, $100 appropriated for experiments respecting',
+        volume: 'Volume 4',
+        page: 'Page 11'
+      },
+      {
+        id: '2823',
+        subject: 'Finley Samuel, Takes baths  Sept. 1761',
+        volume: 'Volume 1',
+        page: 'Page 93'
+      }
+    ];
+    test('you can do AND searches', () => {
+      filterSet.setValue('subject_one', 'bath');
+      filterSet.setValue('subject_two', 'house');
+      const filtered = filterSet.filterRows(rows);
+      expect(filtered.length).toEqual(2);
+      expect(filtered[0].subject).toEqual(
+        'Appropriation, to Com. on Bathhouse & c.'
+      );
+      expect(filtered[1].subject).toEqual(
+        'Bath & Wash House, $100 appropriated for experiments respecting'
+      );
+    });
+    test.skip('you can do OR searches', () => {
+      filterSet.setValue('subject_one', 'bath');
+      filterSet.setValue('subject_two', 'house');
+      const filtered = filterSet.filterRows(rows);
+      expect(filtered.length).toEqual(3);
+    });
+  });
 });
