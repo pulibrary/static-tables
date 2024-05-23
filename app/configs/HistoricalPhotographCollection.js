@@ -25,6 +25,15 @@ export default {
   // optional function: options_generator
   data_filters: [
     {
+      id: 'subject',
+      name: 'Subject',
+      type: 'text',
+      // concatenated_subjects is not displayed, it's a column
+      // in the CSV that uses a formula to combine the
+      // general_sub and specific_sub columns
+      data_column: 'concatenated_subjects'
+    },
+    {
       id: 'division',
       name: 'Division',
       type: 'select',
