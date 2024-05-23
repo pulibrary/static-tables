@@ -45,7 +45,7 @@ describe('PaginatedTable', () => {
     const [firstLabel, secondLabel, thirdLabel, fourthLabel] =
       wrapper.findAll('label');
     expect(firstLabel.text()).toEqual('Date');
-    expect(secondLabel.text()).toEqual('Name');
+    expect(secondLabel.text()).toEqual('Auction Name');
     expect(thirdLabel.text()).toEqual('Auction House');
     expect(fourthLabel.text()).toEqual('City');
   });
@@ -63,10 +63,11 @@ describe('PaginatedTable', () => {
     const [firstInput, secondInput] = wrapper.findAll('input');
 
     expect(firstInput.attributes('aria-label')).toBe('Date to filter by');
-    expect(firstInput.attributes('type')).toBe('text');
-    expect(secondInput.attributes('aria-label')).toBe('Name of auction');
-    expect(secondInput.attributes('type')).toBe('text');
-
+    expect(firstInput.attributes('type')).toBe('search');
+    expect(secondInput.attributes('aria-label')).toBe(
+      'Auction name for search'
+    );
+    expect(secondInput.attributes('type')).toBe('search');
     const [firstDropdown, secondDropdown] = wrapper.findAll('select');
 
     expect(firstDropdown.attributes('aria-label')).toBe(

@@ -19,10 +19,10 @@ export default {
       data_column: 'Date'
     },
     {
-      id: 'name',
-      name: 'Name',
+      id: 'auction-name',
+      name: 'Auction Name',
       type: 'text',
-      aria_label: 'Name of auction',
+      aria_label: 'Auction name for search',
       data_column: 'Name'
     },
     {
