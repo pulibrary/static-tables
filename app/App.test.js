@@ -119,6 +119,9 @@ describe('App', () => {
       });
       wrapper = mount(App);
       expect(wrapper.find('.banner').exists()).toBeTruthy();
+      // Since these images are purely decorative, the alt text should be empty,
+      // so that screen readers don't announce the file name
+      expect(wrapper.find('.banner').attributes('alt')).toBe('');
     });
     test('Does not shows a banner when there is not a banner_url', () => {
       Object.defineProperty(window, 'location', {
