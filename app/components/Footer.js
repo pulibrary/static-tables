@@ -3,9 +3,8 @@ import { LuxLibraryFooter } from 'lux-design-system';
 export default {
   name: 'Footer',
   template: `
-    <footer>
-      <LuxLibraryFooter></LuxLibraryFooter>
-    </footer>`,
+      <LuxLibraryFooter type="footer"></LuxLibraryFooter>
+  `,
   components: {
     LuxLibraryFooter
   }

@@ -9,8 +9,6 @@ export default {
     LuxLibraryHeader: LuxLibraryHeader
   },
   template: `
-    <header>
-      <LuxLibraryHeader :appName="title"></LuxLibraryHeader>
-    </header>
+    <LuxLibraryHeader :appName="title" type="header"></LuxLibraryHeader>
   `
 };
