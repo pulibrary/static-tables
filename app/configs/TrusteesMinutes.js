@@ -11,24 +11,10 @@ export default {
   // optional function: options_generator
   data_filters: [
     {
-      id: 'subject_one',
+      id: 'subject',
       name: 'Subject',
       type: 'text',
       aria_label: 'First subject for search',
-      data_column: 'subject'
-    },
-    {
-      id: 'subject_two',
-      name: 'Subject',
-      type: 'text',
-      aria_label: 'Second subject for search',
-      data_column: 'subject'
-    },
-    {
-      id: 'subject_three',
-      name: 'Subject',
-      type: 'text',
-      aria_label: 'Third subject for search',
       data_column: 'subject'
     }
   ],

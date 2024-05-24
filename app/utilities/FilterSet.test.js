@@ -86,6 +86,11 @@ describe('FilterSet', () => {
         'Bath & Wash House, $100 appropriated for experiments respecting'
       );
     });
+    test('you cannot do AND searches on a single filter', () => {
+      filterSet.setValue('subject_one', 'bath house');
+      const filtered = filterSet.filterRows(rows);
+      expect(filtered.length).toEqual(0);
+    });
     test.skip('you can do OR searches', () => {
       filterSet.setValue('subject_one', 'bath');
       filterSet.setValue('subject_two', 'house');
