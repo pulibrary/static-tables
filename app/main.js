@@ -9,8 +9,8 @@ import 'lux-design-system/dist/style.css';
 const app = createApp(App);
 
 const config = {
-  apiKey: process.env.VITE_HONEYBADGER_API_KEY,
-  environment: process.env.VITE_HONEYBADGER_ENV
+  apiKey: import.meta.env.VITE_HONEYBADGER_API_KEY,
+  environment: import.meta.env.VITE_HONEYBADGER_ENV
 };
 
 app.use(HoneybadgerVue, config);
