@@ -11,7 +11,7 @@ export default {
       page: 1
     };
   },
-  emit: ['pageSizeChange', 'pageChange'],
+  emits: ['pageSizeChange', 'pageChange'],
   methods: {
     setPageSize(size) {
       this.$emit('pageSizeChange', size);
