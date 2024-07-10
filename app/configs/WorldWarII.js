@@ -2,7 +2,7 @@ export default {
   data_columns: [
     ['Name', 'name'],
     ['Rank and Branch of service', 'rank'],
-    ['Year of Death', 'death_date'],
+    ['Date of Death', 'death_date'],
     ['Place of Death', 'place'],
     ['Class Year', 'year']
   ],
@@ -23,9 +23,9 @@ export default {
     },
     {
       id: 'death-date',
-      name: 'Year of Death',
+      name: 'Date of Death',
       type: 'text',
-      aria_label: 'Year of Death to filter by',
+      aria_label: 'Date of Death to filter by',
       data_column: 'death_date'
     },
     {
