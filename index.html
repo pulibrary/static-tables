@@ -2,7 +2,16 @@
 <html lang="en-US">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' *.princeton.edu; script-src 'self' 'unsafe-eval' *.princeton.edu; connect-src 'self' https://api.honeybadger.io https://docs.google.com *.googleusercontent.com; font-src 'self'; base-uri 'none'; img-src 'self' *.princeton.edu data:;">
+    <meta 
+      http-equiv="Content-Security-Policy" 
+      content="
+        default-src 'none'; 
+        style-src 'self' 'unsafe-inline' *.princeton.edu;
+        script-src 'self' 'unsafe-eval' *.princeton.edu;
+        connect-src 'self' localhost:* https://api.honeybadger.io https://docs.google.com *.googleusercontent.com;
+        font-src 'self';
+        base-uri 'none';
+        img-src 'self' *.princeton.edu data:;">
     <title>Princeton University Library</title>
     <link rel="icon" type="image/x-icon" href="./app/favicon.ico">
     <script type="module" src="./app/main.js"></script>
