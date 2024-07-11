@@ -4,8 +4,8 @@ import { FilterSet } from './FilterSet';
 describe('FilterSet', () => {
   test('you can set values of filters', () => {
     const filterSet = new FilterSet([
-      { id: 'name', type: 'text', data_column: 'Name' },
-      { id: 'city', type: 'select', data_column: 'City' }
+      { id: 'name', type: 'text', data_columns: ['Name'] },
+      { id: 'city', type: 'select', data_columns: ['City'] }
     ]);
     const rows = [
       {
@@ -35,6 +35,53 @@ describe('FilterSet', () => {
       'American Vision: Painting and Decorative Arts'
     );
   });
+  describe('multi-column search', () => {
+    const rows = [
+      {
+        ID: '0',
+        Date: '19-Jan-00',
+        'Auction House': "Christie's East",
+        City: 'New York',
+        'Sale #': '8337',
+        Name: 'American Vision: Painting and Decorative Arts',
+        Catalog: "Christie's East-(Firm) Box 6"
+      },
+      {
+        ID: '1',
+        Date: '21-Jan-00',
+        'Auction House': "Christie's",
+        City: 'New York',
+        'Sale #': '9314',
+        Name: 'Important American Furniture',
+        Catalog: "Christie's New York-3 Box 23"
+      }
+    ];
+    const filterSet = new FilterSet([
+      {
+        id: 'multi',
+        name: 'Multi',
+        type: 'text',
+        aria_label: 'Multi-field Search',
+        data_columns: ['Auction House', 'Name']
+      }
+    ]);
+    test('multi-search can find values in auction-house', () => {
+      filterSet.setValue('multi', 'East');
+
+      const filtered = filterSet.filterRows(rows);
+      expect(filtered.length).toEqual(1);
+      expect(filtered[0].Name).toEqual(
+        'American Vision: Painting and Decorative Arts'
+      );
+    });
+    test('multi-search can find values in Name', () => {
+      filterSet.setValue('multi', 'Furniture');
+
+      const filtered = filterSet.filterRows(rows);
+      expect(filtered.length).toEqual(1);
+      expect(filtered[0].Name).toEqual('Important American Furniture');
+    });
+  });
   describe('boolean search', () => {
     const filterSet = new FilterSet([
       {
@@ -42,14 +89,14 @@ describe('FilterSet', () => {
         name: 'Subject',
         type: 'text',
         aria_label: 'Subject for search',
-        data_column: 'subject'
+        data_columns: ['subject']
       },
       {
         id: 'subject_two',
         name: 'Subject',
         type: 'text',
         aria_label: 'Subject for search',
-        data_column: 'subject'
+        data_columns: ['subject']
       }
     ]);
 

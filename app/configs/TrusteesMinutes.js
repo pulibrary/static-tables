@@ -15,7 +15,7 @@ export default {
       name: 'Subject',
       type: 'text',
       aria_label: 'First subject for search',
-      data_column: 'subject'
+      data_columns: ['subject']
     }
   ],
   header_title: '', // title for the site header (appears next to PUL logo)

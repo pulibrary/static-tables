@@ -12,35 +12,35 @@ export default {
       name: 'Name',
       type: 'text',
       aria_label: 'Alumnus or Princeton student full name',
-      data_column: 'name'
+      data_columns: ['name']
     },
     {
       id: 'rank',
       name: 'Rank/Branch of',
       type: 'text',
       aria_label: 'Rank/Branch of Service to filter by',
-      data_column: 'rank'
+      data_columns: ['rank']
     },
     {
       id: 'death-date',
       name: 'Date of Death',
       type: 'text',
       aria_label: 'Date of Death to filter by',
-      data_column: 'death_date'
+      data_columns: ['death_date']
     },
     {
       id: 'place',
       name: 'Place of Death',
       type: 'text',
       aria_label: 'Place of Death to filter by',
-      data_column: 'place'
+      data_columns: ['place']
     },
     {
       id: 'class-year',
       name: 'Class Year',
       type: 'text',
       aria_label: 'Class Year to filter by',
-      data_column: 'year'
+      data_columns: ['year']
     }
   ],
   header_title: 'The Department of Special Collections',
