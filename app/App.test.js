@@ -111,6 +111,17 @@ describe('App', () => {
           'Princeton Alumni Weekly Memorial Index, 1894-2011'
         );
       });
+      test('navigating to economics company directories', () => {
+        Object.defineProperty(window, 'location', {
+          value: new URL(
+            'https://library.princeton.edu/static_tables/company-directories'
+          )
+        });
+        wrapper = mount(App);
+        expect(wrapper.find('.page-title').text()).toBe(
+          'Economics Company Directories'
+        );
+      });
     });
   describe('Banner', () => {
     test('Shows a banner when there is a banner_url', () => {

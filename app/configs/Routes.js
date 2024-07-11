@@ -1,3 +1,4 @@
+import CompanyDirectory from './CompanyDirectory.js';
 import Marquand from './Marquand.js';
 import FacultyAndStaff from './FacultyAndStaff.js';
 import GraduateAlumniIndex from './GraduateAlumniIndex.js';
@@ -11,6 +12,7 @@ import UndergradAlumniIndexPart2 from './UndergradAlumniIndexPart2.js';
 import WorldWarII from './WorldWarII.js';
 
 export default {
+  'company-directories': CompanyDirectory,
   'marquand-catalogs': Marquand,
   'faculty-and-professional-staff-index': FacultyAndStaff,
   'princeton-university-graduate-alumni-index': GraduateAlumniIndex,
