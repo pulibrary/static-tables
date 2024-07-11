@@ -3,6 +3,7 @@ import { DataService } from '../services/DataService.js';
 import Table from './Table.js';
 import TableDescription from './TableDescription.js';
 import TableTitle from './TableTitle.js';
+import SearchSelectFilter from './SearchSelectFilter.js';
 import SelectFilter from './SelectFilter.js';
 import TextFilter from './TextFilter.js';
 import Pagination from './Pagination.js';
@@ -15,6 +16,7 @@ export default {
     Table,
     TableDescription,
     TableTitle,
+    SearchSelectFilter,
     SelectFilter,
     TextFilter
   },
@@ -136,7 +138,8 @@ export default {
           <div class="row">
             <div class="col" v-for="filter in dataFilters">
               <TextFilter v-if="filter.type === 'text'" :config="filter" @filterChange="handleFilterChange"></TextFilter>
-              <SelectFilter v-else :config="filter" @filterChange="handleFilterChange" :rows="rows"></SelectFilter>
+              <SelectFilter v-else-if="filter.type === 'select'" :config="filter" @filterChange="handleFilterChange" :rows="rows"></SelectFilter>
+              <SearchSelectFilter v-else-if="filter.type === 'search-select'" :config="filter" @filterChange="handleFilterChange" :rows="rows"></SearchSelectFilter>
             </div>
           </div>
           <div class="row">

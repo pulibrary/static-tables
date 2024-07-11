@@ -209,6 +209,59 @@ describe('PaginatedTable', () => {
     expect(cellsAfterFirstSelect[2].text()).toEqual('New York');
   });
 
+  test('search-select', async () => {
+    const wrapper = mount(PaginatedTable, {
+      props: {
+        dataUrl: 'https://www.example.com',
+        dataColumns: [
+          ['Full Name', 'full_name'],
+          ['Trustee Type', 'trustee_type']
+        ],
+        sorter: () => 1,
+        dataFilters: [
+          {
+            id: 'trustee-type',
+            name: 'Trustee Type',
+            type: 'search-select',
+            aria_label: 'Trustee Type to filter by',
+            data_column: 'trustee_type',
+            options_generator: () => {
+              return [
+                ['Alumni', 'Alumni'],
+                ['Charter', 'Charter'],
+                ['ex Officio', 'ex Officio']
+              ];
+            }
+          }
+        ]
+      }
+    });
+    wrapper.setData({
+      rows: [
+        {
+          full_name: 'Leon Abbett',
+          trustee_type: 'Governor of NJ, ex Officio'
+        },
+        {
+          full_name: "Julius Ochs Adler '14",
+          trustee_type: 'Alumni Trustee, Charter Trustee'
+        }
+      ]
+    });
+    await wrapper.find('datalist');
+
+    const cellsBeforeSearch = wrapper.findAll('tbody td');
+    expect(cellsBeforeSearch.length).toEqual(4);
+    const searchInput = wrapper.find('input[type="search"]');
+    await searchInput.setValue('Alumni');
+    const cellsAfterSearch = wrapper.findAll('tbody td');
+    expect(cellsAfterSearch.length).toEqual(2);
+    expect(cellsAfterSearch[0].text()).toEqual("Julius Ochs Adler '14");
+    expect(cellsAfterSearch[1].text()).toEqual(
+      'Alumni Trustee, Charter Trustee'
+    );
+  });
+
   test('pagination', async () => {
     const wrapper = mount(PaginatedTable, {
       props: {

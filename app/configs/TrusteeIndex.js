@@ -1,5 +1,3 @@
-import Shared from './Shared';
-
 export default {
   // An array of two-item arrays. The inner arrays should have ['HeaderForDisplay', 'HeaderOnCsv']
   // for example ['First Name', 'fname']
@@ -24,10 +22,17 @@ export default {
     {
       id: 'trustee-type',
       name: 'Trustee Type',
-      type: 'select',
+      type: 'search-select',
       aria_label: 'Trustee Type to filter by',
       data_column: 'trustee_type',
-      options_generator: Shared.valuesFromColumn('trustee_type')
+      options_generator: () => [
+        ['Alumni', 'Alumni'],
+        ['Charter', 'Charter'],
+        ['ex Officio', 'ex Officio'],
+        ['Term', 'Term'],
+        ['President', 'President'],
+        ['Governor', 'Governor']
+      ]
     }
   ],
   header_title: '', // title for the site header (appears next to PUL logo)

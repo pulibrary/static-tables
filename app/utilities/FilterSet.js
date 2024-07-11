@@ -37,7 +37,7 @@ class Filter {
   }
 
   rowMatchesFilter(row) {
-    if (this.type === 'text') {
+    if (this.type === 'text' || this.type === 'search-select') {
       return (
         row[this.data_column]
           .toLowerCase()
