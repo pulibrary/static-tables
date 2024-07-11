@@ -15,21 +15,21 @@ export default {
       name: 'Name',
       type: 'text',
       aria_label: 'Alumni full name',
-      data_column: 'subject'
+      data_columns: ['subject']
     },
     {
       id: 'class-year',
       name: 'Undg Class',
       type: 'text',
       aria_label: 'Undergraduate Class Year to filter by',
-      data_column: 'class_year'
+      data_columns: ['class_year']
     },
     {
       id: 'class-grade',
       name: 'Grad Class',
       type: 'text',
       aria_label: 'Graduate Class Year to filter by',
-      data_column: 'class_grade'
+      data_columns: ['class_grade']
     }
   ],
   header_title: 'The Department of Special Collections',

@@ -13,7 +13,7 @@ export default {
       name: '',
       type: '',
       aria_label: '',
-      data_column: ''
+      data_columns: []
     }
     // example with options_generator
     // {
@@ -21,7 +21,7 @@ export default {
     //   name: 'Auction House',
     //   type: 'select',
     //   aria_label: 'Auction House to filter by',
-    //   data_column: 'Auction House',
+    //   data_columns: ['Auction House'],
     //   options_generator: rows => {
     //     return [
     //       ...new Set(

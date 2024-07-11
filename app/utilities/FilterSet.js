@@ -5,7 +5,7 @@ export class FilterSet {
     configuration.forEach(configEntry => {
       this.filters[configEntry.id] = new Filter(
         configEntry.type,
-        configEntry.data_column
+        configEntry.data_columns
       );
     });
   }
@@ -26,9 +26,9 @@ export class FilterSet {
 }
 
 class Filter {
-  constructor(type, data_column) {
+  constructor(type, data_columns) {
     this.type = type;
-    this.data_column = data_column;
+    this.data_columns = data_columns;
     this.value = '';
   }
 
@@ -38,13 +38,20 @@ class Filter {
 
   rowMatchesFilter(row) {
     if (this.type === 'text' || this.type === 'search-select') {
-      return (
-        row[this.data_column]
-          .toLowerCase()
-          .indexOf(this.value.toLowerCase()) !== -1
+      const lowercase = this.value.toLowerCase();
+      // creates an object that contains only the columns we are filtering on
+      let filtered_row = this.data_columns.reduce(
+        (res, key) => ((res[key] = row[key]), res),
+        {}
       );
+
+      return Object.values(filtered_row).some(element =>
+        element.toLowerCase().includes(lowercase)
+      );
+      // this.data_columns.some((column) => row[column.toLowerCase()].indexOf(this.value.toLowerCase()) !== -1)
     } else if (this.type === 'select') {
-      return this.value === '' || row[this.data_column] === this.value;
+      let column_values = this.data_columns.map(column => row[column]);
+      return this.value === '' || column_values.includes(this.value);
     } else {
       return false;
     }

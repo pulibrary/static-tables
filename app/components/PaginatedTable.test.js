@@ -224,7 +224,7 @@ describe('PaginatedTable', () => {
             name: 'Trustee Type',
             type: 'search-select',
             aria_label: 'Trustee Type to filter by',
-            data_column: 'trustee_type',
+            data_columns: ['trustee_type'],
             options_generator: () => {
               return [
                 ['Alumni', 'Alumni'],

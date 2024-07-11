@@ -19,21 +19,21 @@ export default {
       name: 'Last Name',
       type: 'text',
       aria_label: 'Last Name for search',
-      data_column: 'lname'
+      data_columns: ['lname']
     },
     {
       id: 'first-name',
       name: 'First Name',
       type: 'text',
       aria_label: 'First Name for search',
-      data_column: 'fname'
+      data_columns: ['fname']
     },
     {
       id: 'class-year',
       name: 'Class Year',
       type: 'text',
       aria_label: 'Class Year for search',
-      data_column: 'year'
+      data_columns: ['year']
     }
   ],
   header_title: '', // title for the site header (appears next to PUL logo)
