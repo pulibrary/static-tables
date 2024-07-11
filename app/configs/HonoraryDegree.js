@@ -13,21 +13,21 @@ export default {
       name: 'First Name',
       type: 'text',
       aria_label: 'First Name to filter by',
-      data_column: 'fname'
+      data_columns: ['fname']
     },
     {
       id: 'last-name',
       name: 'Last Name',
       type: 'text',
       aria_label: 'Last Name to filter by',
-      data_column: 'lname'
+      data_columns: ['lname']
     },
     {
       id: 'year',
       name: 'Year Received',
       type: 'text',
       aria_label: 'Year Received',
-      data_column: 'year'
+      data_columns: ['year']
     }
   ],
   header_title: 'The Department of Special Collections',

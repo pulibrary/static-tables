@@ -19,14 +19,14 @@ export default {
       name: 'Trustee Name',
       type: 'text',
       aria_label: 'Trustee name to filter by',
-      data_column: 'full_name'
+      data_columns: ['full_name']
     },
     {
       id: 'trustee-type',
       name: 'Trustee Type',
       type: 'select',
       aria_label: 'Trustee Type to filter by',
-      data_column: 'trustee_type',
+      data_columns: ['trustee_type'],
       options_generator: Shared.valuesFromColumn('trustee_type')
     }
   ],

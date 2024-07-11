@@ -16,21 +16,21 @@ export default {
       name: 'Date',
       type: 'text',
       aria_label: 'Date to filter by',
-      data_column: 'Date'
+      data_columns: ['Date']
     },
     {
       id: 'auction-name',
       name: 'Auction Name',
       type: 'text',
       aria_label: 'Auction name for search',
-      data_column: 'Name'
+      data_columns: ['Name']
     },
     {
       id: 'auction-house',
       name: 'Auction House',
       type: 'select',
       aria_label: 'Auction House to filter by',
-      data_column: 'Auction House',
+      data_columns: ['Auction House'],
       options_generator: rows => {
         return [
           ...new Set(
@@ -46,7 +46,7 @@ export default {
       name: 'City',
       type: 'select',
       aria_label: 'City to filter by',
-      data_column: 'City',
+      data_columns: ['City'],
       options_generator: rows => {
         return [
           ...new Set(

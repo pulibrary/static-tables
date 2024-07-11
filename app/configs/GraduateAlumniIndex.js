@@ -17,28 +17,28 @@ export default {
       name: 'Last Name',
       type: 'text',
       aria_label: 'Last Name to search by',
-      data_column: 'lastname'
+      data_columns: ['lastname']
     },
     {
       id: 'first-name',
       name: 'First Name',
       type: 'text',
       aria_label: 'First Name to search by',
-      data_column: 'firstname'
+      data_columns: ['firstname']
     },
     {
       id: 'graduation-date',
       name: 'Graduation Date',
       type: 'text',
       aria_label: 'Graduation Date to search by',
-      data_column: 'year'
+      data_columns: ['year']
     },
     {
       id: 'department-code',
       name: 'Department Code',
       type: 'select',
       aria_label: 'Department code to filter by',
-      data_column: 'department',
+      data_columns: ['department'],
       options_generator: () => {
         return SharedConfig.department_options;
       }

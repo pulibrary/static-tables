@@ -25,32 +25,45 @@ export default {
   // optional function: options_generator
   data_filters: [
     {
-      id: 'subject',
-      name: 'Subject',
+      id: 'keyword',
+      name: 'Keyword',
       type: 'text',
-      // concatenated_subjects is not displayed, it's a column
-      // in the CSV that uses a formula to combine the
-      // general_sub and specific_sub columns
-      data_column: 'concatenated_subjects'
+      data_columns: [
+        'division',
+        'box',
+        'item_num',
+        'subseries',
+        'general_sub',
+        'specific_sub',
+        'notes',
+        'date_taken',
+        'publication',
+        'photographer',
+        'image_type',
+        'negative_num',
+        'image_num',
+        'provenance',
+        'online_image'
+      ]
     },
     {
       id: 'division',
       name: 'Division',
       type: 'select',
-      data_column: 'division',
+      data_columns: ['division'],
       options_generator: Shared.valuesFromColumn('division')
     },
     {
       id: 'photographer',
       name: 'Photographer',
       type: 'text',
-      data_column: 'photographer'
+      data_columns: ['photographer']
     },
     {
       id: 'image_type',
       name: 'Image Type',
       type: 'select',
-      data_column: 'image_type',
+      data_columns: ['image_type'],
       options_generator: () => {
         return [
           ['Albumen', 'Albumen'],

@@ -15,19 +15,19 @@ export default {
       id: 'last-name',
       name: 'Last Name',
       type: 'text',
-      data_column: 'lname'
+      data_columns: ['lname']
     },
     {
       id: 'first-name',
       name: 'First Name',
       type: 'text',
-      data_column: 'fname'
+      data_columns: ['fname']
     },
     {
       id: 'department',
       name: 'Department',
       type: 'select',
-      data_column: 'dept',
+      data_columns: ['dept'],
       options_generator: () => {
         return SharedConfig.department_options;
       }
