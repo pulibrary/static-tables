@@ -37,7 +37,7 @@ class Filter {
   }
 
   rowMatchesFilter(row) {
-    if (this.type === 'text') {
+    if (this.type === 'text' || this.type === 'search-select') {
       const lowercase = this.value.toLowerCase();
       // creates an object that contains only the columns we are filtering on
       let filtered_row = this.data_columns.reduce(
