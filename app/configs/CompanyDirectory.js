@@ -1,21 +1,21 @@
 export default {
   data_columns: [
-    ['Title', 'title'],
-    ['Covers', 'covers'],
-    ['Print', 'print'],
-    ['Call Number', 'call_number'],
-    ['Electronic', 'electronic']
+    ['Title', 'Title'],
+    ['Covers', 'Covers'],
+    ['Print', 'Print'],
+    ['Call Number', 'Call number'],
+    ['Electronic', 'Electronic']
   ],
   data_filters: [
     {
       id: 'title',
-      title: 'Title',
+      name: 'Title',
       type: 'text',
       aria_label: 'Title of company directory',
-      data_column: 'title'
+      data_columns: ['Title']
     }
   ],
-  header_title: 'sth',
+  header_title: 'Economics Company Directories',
   page_title: 'Economics Company Directories',
   table_title: 'Browse Economics Company Directories',
   description: '',
