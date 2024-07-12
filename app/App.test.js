@@ -122,6 +122,17 @@ describe('App', () => {
           'Economics Company Directories'
         );
       });
+      test('navigating to economics stock exchange holdings', () => {
+        Object.defineProperty(window, 'location', {
+          value: new URL(
+            'https://library.princeton.edu/economics-stock-exchange-holdings'
+          )
+        });
+        wrapper = mount(App);
+        expect(wrapper.find('.page-title').text()).toBe(
+          'Economics Stock Exchange Holdings'
+        );
+      });
     });
   describe('Banner', () => {
     test('Shows a banner when there is a banner_url', () => {
