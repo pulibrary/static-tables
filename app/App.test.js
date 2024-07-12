@@ -133,6 +133,17 @@ describe('App', () => {
           'Economics Stock Exchange Holdings'
         );
       });
+      test('navigating to economics central bank holdings', () => {
+        Object.defineProperty(window, 'location', {
+          value: new URL(
+            'https://library.princeton.edu/economics-central-bank-holdings'
+          )
+        });
+        wrapper = mount(App);
+        expect(wrapper.find('.page-title').text()).toBe(
+          'Economics Central Bank Holdings'
+        );
+      });
     });
   describe('Banner', () => {
     test('Shows a banner when there is a banner_url', () => {
