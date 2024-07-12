@@ -1,9 +1,10 @@
 import CompanyDirectory from './CompanyDirectory.js';
-import Marquand from './Marquand.js';
+import EconomicsStockExchangeHoldings from './EconomicsStockExchangeHoldings.js';
 import FacultyAndStaff from './FacultyAndStaff.js';
 import GraduateAlumniIndex from './GraduateAlumniIndex.js';
 import HistoricalPhotographCollection from './HistoricalPhotographCollection.js';
 import HonoraryDegree from './HonoraryDegree.js';
+import Marquand from './Marquand.js';
 import PrincetonAlumniMemorial from './PrincetonAlumniMemorial.js';
 import TrusteeIndex from './TrusteeIndex.js';
 import TrusteesMinutes from './TrusteesMinutes.js';
@@ -13,10 +14,11 @@ import WorldWarII from './WorldWarII.js';
 
 export default {
   'company-directories': CompanyDirectory,
-  'marquand-catalogs': Marquand,
+  'economics-stock-exchange-holdings': EconomicsStockExchangeHoldings,
   'faculty-and-professional-staff-index': FacultyAndStaff,
-  'princeton-university-graduate-alumni-index': GraduateAlumniIndex,
   'honorary-degree-index': HonoraryDegree,
+  'marquand-catalogs': Marquand,
+  'princeton-university-graduate-alumni-index': GraduateAlumniIndex,
   'princeton-alumni-weekly-memorial-index': PrincetonAlumniMemorial,
   'princeton-university-historical-photograph-collection':
     HistoricalPhotographCollection,
