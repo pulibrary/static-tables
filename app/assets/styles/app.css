@@ -28,6 +28,10 @@
   font-size: calc(1.325rem + .9vw);
 }
 
+.page-title {
+  background-color: var(--color-grayscale-dark);
+}
+
 footer {
   padding-bottom: 16px;
 }
