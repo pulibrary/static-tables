@@ -32,7 +32,7 @@ export default {
       <div class="container">
         <div class="container">
           <img v-if="bannerUrl" :src="bannerUrl" class="img-fluid banner" width="1200" height="265" alt="" />
-          <h1 class="page-title bg-black text-white">{{ metadataConfig.page_title }}</h1>
+          <h1 class="page-title text-white">{{ metadataConfig.page_title }}</h1>
         </div>
         <PaginatedTable
           :sorter="sorterMethod"
