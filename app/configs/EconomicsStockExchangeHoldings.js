@@ -14,14 +14,14 @@ export default {
       id: 'country',
       name: 'Country',
       type: 'text',
-      aria_label: 'Country of Stock Excahnge Holdings',
+      aria_label: 'Country of Stock Exchange Holdings',
       data_columns: ['Country']
     },
     {
       id: 'title',
       name: 'Title',
       type: 'text',
-      aria_label: 'Title of Stock Excahnge Holdings',
+      aria_label: 'Title of Stock Exchange Holdings',
       data_columns: ['Title']
     }
   ],

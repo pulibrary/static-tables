@@ -1,4 +1,5 @@
 import CompanyDirectory from './CompanyDirectory.js';
+import EconomicsCentralBankHoldings from './EconomicsCentralBankHoldings.js';
 import EconomicsStockExchangeHoldings from './EconomicsStockExchangeHoldings.js';
 import FacultyAndStaff from './FacultyAndStaff.js';
 import GraduateAlumniIndex from './GraduateAlumniIndex.js';
@@ -14,6 +15,7 @@ import WorldWarII from './WorldWarII.js';
 
 export default {
   'company-directories': CompanyDirectory,
+  'economics-central-bank-holdings': EconomicsCentralBankHoldings,
   'economics-stock-exchange-holdings': EconomicsStockExchangeHoldings,
   'faculty-and-professional-staff-index': FacultyAndStaff,
   'honorary-degree-index': HonoraryDegree,
