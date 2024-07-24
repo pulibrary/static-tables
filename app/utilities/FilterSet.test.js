@@ -145,4 +145,31 @@ describe('FilterSet', () => {
       expect(filtered.length).toEqual(3);
     });
   });
+  describe('searching with diacritics', () => {
+    test('it can search for terms with and without diacritics', () => {
+      const filterSet = new FilterSet([
+        {
+          id: 'first-name',
+          name: 'First Name',
+          type: 'text',
+          data_columns: [['fname']]
+        }
+      ]);
+      const rows = [
+        { fname: 'Francois-André' },
+        { fname: 'Francois-Andre' },
+        { fname: 'Robert' }
+      ];
+      filterSet.setValue('first-name', 'Francois-');
+      const filtered = filterSet.filterRows(rows);
+      expect(filtered.length).toEqual(2);
+      filterSet.setValue('first-name', 'Francois-Andre');
+      const filteredAfterSecond = filterSet.filterRows(rows);
+      expect(filteredAfterSecond.length).toEqual(2);
+      filterSet.setValue('first-name', 'Francois-André');
+      const filteredAfterThird = filterSet.filterRows(rows);
+      expect(filteredAfterThird.length).toEqual(1);
+      expect(filteredAfterThird[0]['fname']).toEqual('Francois-André');
+    });
+  });
 });

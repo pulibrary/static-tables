@@ -36,9 +36,13 @@ class Filter {
     this.value = value;
   }
 
+  normalizeString(str) {
+    return str.toLowerCase().normalize('NFD');
+  }
+
   rowMatchesFilter(row) {
     if (this.type === 'text' || this.type === 'search-select') {
-      const lowercase = this.value.toLowerCase();
+      const normalizedSearchString = this.normalizeString(this.value);
       // creates an object that contains only the columns we are filtering on
       let filtered_row = this.data_columns.reduce(
         (res, key) => ((res[key] = row[key]), res),
@@ -46,7 +50,7 @@ class Filter {
       );
 
       return Object.values(filtered_row).some(element =>
-        element.toLowerCase().includes(lowercase)
+        this.normalizeString(element).includes(normalizedSearchString)
       );
       // this.data_columns.some((column) => row[column.toLowerCase()].indexOf(this.value.toLowerCase()) !== -1)
     } else if (this.type === 'select') {
