@@ -6,6 +6,7 @@ import FacultyAndStaff from './FacultyAndStaff.js';
 import GraduateAlumniIndex from './GraduateAlumniIndex.js';
 import HistoricalPhotographCollection from './HistoricalPhotographCollection.js';
 import HonoraryDegree from './HonoraryDegree.js';
+import LaborUnionHoldings from './LaborUnionHoldings.js';
 import Marquand from './Marquand.js';
 import PrincetonAlumniMemorial from './PrincetonAlumniMemorial.js';
 import TrusteeIndex from './TrusteeIndex.js';
@@ -21,6 +22,7 @@ export default {
   'economics-working-papers': EconomicsWorkingPapers,
   'faculty-and-professional-staff-index': FacultyAndStaff,
   'honorary-degree-index': HonoraryDegree,
+  'labor-union-publications': LaborUnionHoldings,
   'marquand-catalogs': Marquand,
   'princeton-university-graduate-alumni-index': GraduateAlumniIndex,
   'princeton-alumni-weekly-memorial-index': PrincetonAlumniMemorial,
