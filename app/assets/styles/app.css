@@ -6,6 +6,10 @@
   height: 34px;
 }
 
+main {
+  padding-bottom: 3rem;
+}
+
 .img-fluid {
   width: 100%;
 }
