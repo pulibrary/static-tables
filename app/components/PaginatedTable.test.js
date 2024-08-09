@@ -150,52 +150,52 @@ describe('PaginatedTable', () => {
         dataFilters: Marquand.data_filters
       }
     });
-    wrapper.setData({
-      rows: [
-        {
-          ID: '0',
-          Date: '19-Jan-00',
-          'Auction House': "Christie's East",
-          City: 'New York',
-          'Sale #': '8337',
-          Name: 'American Vision: Painting and Decorative Arts',
-          Catalog: "Christie's East-(Firm) Box 6"
-        },
-        {
-          ID: '1',
-          Date: '21-Jan-00',
-          'Auction House': "Christie's",
-          City: 'New York',
-          'Sale #': '9314',
-          Name: 'Important American Furniture',
-          Catalog: "Christie's New York-3 Box 23"
-        },
-        {
-          ID: '2',
-          Date: '21-Jan-00',
-          'Auction House': "Christie's East",
-          City: 'Madrid',
-          'Sale #': '9426',
-          Name: 'The Joseph and Bathsheba Pope Valuables Cabinet',
-          Catalog: "Sotheby's Madrid-3 Box 23"
-        },
-        {
-          ID: '3',
-          Date: '21-22-Jan-00',
-          'Auction House': "Sotheby's",
-          City: 'Madrid',
-          'Sale #': '7420',
-          Name: 'Important Americana',
-          Catalog: "Sotheby's Madrid-4 Box 35"
-        }
-      ]
-    });
+    wrapper.vm.setData([
+      {
+        ID: '0',
+        Date: '19-Jan-00',
+        'Auction House': "Christie's East",
+        City: 'New York',
+        'Sale #': '8337',
+        Name: 'American Vision: Painting and Decorative Arts',
+        Catalog: "Christie's East-(Firm) Box 6"
+      },
+      {
+        ID: '1',
+        Date: '21-Jan-00',
+        'Auction House': "Christie's",
+        City: 'New York',
+        'Sale #': '9314',
+        Name: 'Important American Furniture',
+        Catalog: "Christie's New York-3 Box 23"
+      },
+      {
+        ID: '2',
+        Date: '21-Jan-00',
+        'Auction House': "Christie's East",
+        City: 'Madrid',
+        'Sale #': '9426',
+        Name: 'The Joseph and Bathsheba Pope Valuables Cabinet',
+        Catalog: "Sotheby's Madrid-3 Box 23"
+      },
+      {
+        ID: '3',
+        Date: '21-22-Jan-00',
+        'Auction House': "Sotheby's",
+        City: 'Madrid',
+        'Sale #': '7420',
+        Name: 'Important Americana',
+        Catalog: "Sotheby's Madrid-4 Box 35"
+      }
+    ]);
+
     await wrapper.find('select');
 
     const [firstSelect, secondSelect] = wrapper.findAll('select');
 
     await firstSelect.setValue("Christie's East");
     const cellsAfterFirstSelect = wrapper.findAll('tbody td');
+    // const rowsAfterFirstSelect = wrapper.findAll('tbody tr')
     expect(cellsAfterFirstSelect.length).toBe(12);
     expect(cellsAfterFirstSelect[1].text()).toEqual("Christie's East");
     expect(cellsAfterFirstSelect[2].text()).toEqual('Madrid');
@@ -209,6 +209,8 @@ describe('PaginatedTable', () => {
     expect(cellsAfterFirstSelect[2].text()).toEqual('New York');
     expect(wrapper.html().includes('No records found')).toBe(false);
     await firstSelect.setValue("Sotheby's");
+
+    await wrapper.find('.empty-results');
     const cellsAfterThirdSelect = wrapper.findAll('tbody td');
     expect(cellsAfterThirdSelect.length).toBe(1);
     expect(wrapper.html().includes('No records found')).toBe(true);

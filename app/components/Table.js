@@ -18,7 +18,7 @@ export default {
             <tr>
               <td v-for="column in columns" :key="column.id">{{row[column[1]]}}</td>
             </tr>
-        </template>
+          </template>
         </template>
         <template v-else-if="!rows.length && loadingComplete">
           <tr>
