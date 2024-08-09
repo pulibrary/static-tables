@@ -62,6 +62,7 @@ export default {
       pageSize: 100,
       page: 1,
       rows: [],
+      loaded: false,
       filteredRows: [],
       filteredRowsCount: null,
       filterSet: new FilterSet(this.dataFilters)
@@ -122,6 +123,7 @@ export default {
     },
     setData(rows) {
       this.rows = rows;
+      this.loaded = true;
     }
   },
   created() {
@@ -147,7 +149,7 @@ export default {
           </div>
         </form>
       </div>
-      <Table :columns="dataColumns" :rows="filteredRows"></Table>
+      <Table :columns="dataColumns" :rows="filteredRows" :loadingComplete="loaded"></Table>
     </Pagination>      
     </div>`
 };

@@ -2,7 +2,8 @@ export default {
   name: 'Table',
   props: {
     rows: Array,
-    columns: Array
+    columns: Array,
+    loadingComplete: Boolean
   },
   template: `
     <table class="table">
@@ -12,9 +13,18 @@ export default {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="row in rows">
-          <td v-for="column in columns">{{row[column[1]]}}</td>
-        </tr>
+        <template v-if="rows.length">
+          <template v-for="row in rows" :key="row.id">
+            <tr>
+              <td v-for="column in columns" :key="column.id">{{row[column[1]]}}</td>
+            </tr>
+          </template>
+        </template>
+        <template v-else-if="!rows.length && loadingComplete">
+          <tr>
+            <td class="empty-results">No records found</td>
+          </tr>
+        </template>
       </tbody>
     </table>`
 };
