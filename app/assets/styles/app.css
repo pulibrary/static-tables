@@ -43,3 +43,7 @@ footer {
 .footer-icon {
   padding-right: 4px;
 }
+
+.empty-results {
+  font-size: calc(1.325rem + .9vw);
+}
