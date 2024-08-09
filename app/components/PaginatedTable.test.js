@@ -207,6 +207,11 @@ describe('PaginatedTable', () => {
     expect(cellsAfterSecondSelect.length).toBe(6);
     expect(cellsAfterSecondSelect[1].text()).toEqual("Christie's East");
     expect(cellsAfterFirstSelect[2].text()).toEqual('New York');
+    expect(wrapper.html().includes('No records found')).toBe(false);
+    await firstSelect.setValue("Sotheby's");
+    const cellsAfterThirdSelect = wrapper.findAll('tbody td');
+    expect(cellsAfterThirdSelect.length).toBe(1);
+    expect(wrapper.html().includes('No records found')).toBe(true);
   });
 
   test('search-select', async () => {
