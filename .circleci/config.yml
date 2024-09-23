@@ -27,6 +27,14 @@ jobs:
       - run:
           name: Lint
           command: npm run lint
+  semgrep:
+    docker:
+        - image: returntocorp/semgrep
+    steps:
+      - checkout
+      - run:
+          name: Check code against community-provided and custom semgrep rules
+          command: semgrep ci --config auto
 
 workflows:
   test:
@@ -36,3 +44,4 @@ workflows:
           pkg-manager: npm
       - lint
       - bearer
+      - semgrep
