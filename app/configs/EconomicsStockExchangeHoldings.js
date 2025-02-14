@@ -3,7 +3,7 @@ export default {
     ['Country', 'Country'],
     ['Exchange', 'Exchange'],
     ['Title', 'Title'],
-    ['Call Number', 'Call number'],
+    ['Call Number', 'Call Number'],
     ['Last Bound', 'Last Bound'],
     ['Current Issues in PF', 'Current Issues in PF'],
     ['Web Site', 'Web Site'],
