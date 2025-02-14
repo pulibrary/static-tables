@@ -3,7 +3,7 @@ export default {
     ['Region', 'Region'],
     ['Bank Name', 'Bank Name'],
     ['Title', 'Title'],
-    ['Call number', 'Call number'],
+    ['Call number', 'Call Number'],
     ['Last Bound', 'Last Bound'],
     ['Current Issues in PF', 'Current Issues in PF'],
     ['Bank WebSite', 'Bank WebSite'],

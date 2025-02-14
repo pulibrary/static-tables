@@ -3,7 +3,7 @@ export default {
     ['Title', 'Title'],
     ['Covers', 'Covers'],
     ['Print', 'Print'],
-    ['Call Number', 'Call number'],
+    ['Call Number', 'Call Number'],
     ['Electronic', 'Electronic']
   ],
   data_filters: [
