@@ -1,6 +1,7 @@
-# Marquand Catalogs
+# Static Tables
+Library resources that consist predominantly of a searchable flat table. 
 
-Index of Marquand auction catalogs.
+Current page paths can be found in `app/configs/Routes.js`.
 
 ## Local development
 
@@ -21,7 +22,7 @@ Run: `npm test`
 
 
 ## Deploying
-You must run the [libstatic playbook via Prancible](https://github.com/pulibrary/princeton_ansible/blob/main/playbooks/libstatic.yml) in order to deploy this application. If you want to deploy a branch other than `main`, you must edit the `roles/libstatic/defaults/main.yml` file and change the `version` under marquand-catalogs to your branch name, prior to running the playbook.
+You can deploy this site locally by running `BRANCH=[branchname] bundle exec cap [environment] deploy`, or by using the [Ansible Tower template](https://ansible-tower.princeton.edu/#/templates/job_template/13/details)
 
-- If you deploy to staging, you can see the site at https://library-staging.princeton.edu/marquand_catalogs/
+- If you deploy to staging, you can see the site at https://static-tables-staging.princeton.edu/marquand_catalogs/
 - If you deploy to production, you can see the site at https://library.princeton.edu/marquand_catalogs/
