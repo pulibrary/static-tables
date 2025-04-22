@@ -20,6 +20,11 @@ Current page paths can be found in `app/configs/Routes.js`.
 
 Run: `npm test`
 
+### Test coverage
+
+1. Run: `npm test -- --coverage`
+1. Open `coverage/index.html` in your browser, or see the report in your terminal.
+
 
 ## Deploying
 You can deploy this site locally by running `BRANCH=[branchname] bundle exec cap [environment] deploy`, or by using the [Ansible Tower template](https://ansible-tower.princeton.edu/#/templates/job_template/13/details)
