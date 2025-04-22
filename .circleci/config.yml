@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@5.2
+  coveralls: coveralls/coveralls@2.2.5
 
 jobs:
   bearer:
@@ -27,6 +28,20 @@ jobs:
       - run:
           name: Lint
           command: npm run lint
+  test:
+    working_directory: ~/project
+    docker:
+      - image: cimg/node:20.11.0
+    steps:
+      - checkout
+      - node/install:
+          node-version: '20.11.0'
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          name: Test
+          command: npm test -- --coverage
+      - coveralls/upload
   semgrep:
     docker:
         - image: returntocorp/semgrep
@@ -39,9 +54,7 @@ jobs:
 workflows:
   test:
     jobs:
-      - node/test:
-          version: '20.11.0'
-          pkg-manager: npm
+      - test
       - lint
       - bearer
       - semgrep

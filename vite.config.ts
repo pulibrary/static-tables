@@ -10,6 +10,11 @@ export default defineConfig(({ command, mode }) => {
     server: {
       cors: false
     },
+    test: {
+      coverage: {
+        include: ['app/**/*.js', 'app/**/*.ts', 'app/**/*.vue']
+      }
+    },
     base: env.VITE_STATIC_TABLES_BASE_PATH
   };
 });
