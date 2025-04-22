@@ -3,6 +3,8 @@ Library resources that consist predominantly of a searchable flat table.
 
 Current page paths can be found in `app/configs/Routes.js`.
 
+[![Coverage Status](https://coveralls.io/repos/github/pulibrary/static-tables/badge.svg?branch=main)](https://coveralls.io/github/pulibrary/static-tables?branch=main)
+
 ## Local development
 
 1. Run: `npm install`
