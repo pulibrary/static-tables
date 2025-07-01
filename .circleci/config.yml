@@ -18,11 +18,11 @@ jobs:
   lint:
     working_directory: ~/project
     docker:
-      - image: cimg/node:20.11.0
+      - image: cimg/node:24.3.0
     steps:
       - checkout
       - node/install:
-          node-version: '20.11.0'
+          node-version: '24.3.0'
       - node/install-packages:
           pkg-manager: npm
       - run:
@@ -31,11 +31,11 @@ jobs:
   test:
     working_directory: ~/project
     docker:
-      - image: cimg/node:20.11.0
+      - image: cimg/node:24.3.0
     steps:
       - checkout
       - node/install:
-          node-version: '20.11.0'
+          node-version: '24.3.0'
       - node/install-packages:
           pkg-manager: npm
       - run:
