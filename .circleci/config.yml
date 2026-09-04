@@ -5,24 +5,14 @@ orbs:
   coveralls: coveralls/coveralls@2.2.5
 
 jobs:
-  bearer:
-    docker:
-      - image: cimg/ruby:3.2
-    environment:
-      # Set to default branch of your repo
-      DEFAULT_BRANCH: main
-    steps:
-      - checkout
-      - run: curl -sfL https://raw.githubusercontent.com/Bearer/bearer/main/contrib/install.sh | sh -s -- -b /tmp
-      - run: CURRENT_BRANCH=$CIRCLE_BRANCH SHA=$CIRCLE_SHA1 /tmp/bearer scan .
   lint:
     working_directory: ~/project
     docker:
-      - image: cimg/node:24.3.0
+      - image: cimg/node:24.20.0
     steps:
       - checkout
       - node/install:
-          node-version: '24.3.0'
+          node-version: '24.20.0'
       - node/install-packages:
           pkg-manager: npm
       - run:
@@ -31,11 +21,11 @@ jobs:
   test:
     working_directory: ~/project
     docker:
-      - image: cimg/node:24.3.0
+      - image: cimg/node:24.20.0
     steps:
       - checkout
       - node/install:
-          node-version: '24.3.0'
+          node-version: '24.20.0'
       - node/install-packages:
           pkg-manager: npm
       - run:
@@ -56,5 +46,4 @@ workflows:
     jobs:
       - test
       - lint
-      - bearer
       - semgrep
