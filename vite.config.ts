@@ -13,7 +13,7 @@ export default defineConfig(({ command, mode }) => {
     test: {
       coverage: {
         include: ['app/**/*.js', 'app/**/*.ts', 'app/**/*.vue'],
-        exclude: ['app/configs/*.js']
+        exclude: ['app/configs/*.js', 'app/main.js']
       }
     },
     base: env.VITE_STATIC_TABLES_BASE_PATH
