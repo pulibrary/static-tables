@@ -32,6 +32,19 @@ jobs:
           name: Test
           command: npm test -- --coverage
       - coveralls/upload
+  build:
+    working_directory: ~/project
+    docker:
+      - image: cimg/node:24.20.0
+    steps:
+      - checkout
+      - node/install:
+          node-version: '24.20.0'
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          name: Confirm that the project can build
+          command: npm run build  
   semgrep:
     docker:
         - image: returntocorp/semgrep
@@ -47,3 +60,4 @@ workflows:
       - test
       - lint
       - semgrep
+      - build
