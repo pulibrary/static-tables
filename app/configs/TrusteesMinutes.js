@@ -26,7 +26,8 @@ export default {
                 of indices created contemporaneously with the meeting minutes. Therefore, 18th and 19th-century spelling, terms, and usage have not \
                 been altered.</p>\
                 <p>The Mudd Manuscript Library would like to acknowledge the Friends of the Princeton University Library for their generous support \
-                in making this database web-accessible.</p>`,
+                in making this database web-accessible.</p>\
+                <p>Please note: This index is not actively updated and may contain outdated or incorrect information. Nonetheless, it serves as a useful resource for locating historical information in our collections. The <a href="https://findingaids.princeton.edu/">finding aids database</a> contains the updated information on this collection. If you have questions, please reach out to us through the <a href="https://library.princeton.edu/services/special-collections/ask-special-collections">Ask Special Collections form</a>.</p>`,
   data_sources:
     'https://docs.google.com/spreadsheets/d/e/2PACX-1vS_385Pys0S3JDwsS5aONfQwipOFG2F4E-pNRKP83PfaBJJLZlpebKk5Ef6xAt_Mnox_c3gMub62UF-/pub?gid=1148423002&single=true&output=csv' // link to google sheet with /pub?output=csv at the end
 };

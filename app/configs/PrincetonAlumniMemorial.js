@@ -35,7 +35,7 @@ export default {
   header_title: 'The Department of Special Collections',
   page_title: 'Princeton Alumni Weekly Memorial Index, 1894-2011',
   table_title: 'Browse Princeton Alumni Weekly Memorial',
-  description: `<p>Covers all alumni for whom obituaries appeared in the Princeton Alumni Weekly and its predecessor, the Alumni Princetonian, between April 1894 and July 2011. Includes some faculty and honorary class members.</p>`,
+  description: `<p>Covers all alumni for whom obituaries appeared in the Princeton Alumni Weekly and its predecessor, the Alumni Princetonian, between April 1894 and July 2011. Includes some faculty and honorary class members.</p><p>Please note: This index is not actively updated and may contain outdated or incorrect information. Nonetheless, it serves as a useful resource for locating historical information in our collections. If you have questions, please reach out to us through the <a href="https://library.princeton.edu/services/special-collections/ask-special-collections">Ask Special Collections form</a>.</p>`,
   data_sources:
     'https://docs.google.com/spreadsheets/d/e/2PACX-1vQolIZqKCTZO7sMU_AGEIaJXXtLS65iR2Q7cMIcVkVPi5eCt_55R7WaaRgfrCCMvQYqvFS9JkkQgAyR/pub?output=csv'
 };
