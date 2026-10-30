@@ -18,7 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "@honeybadger-io/js": "^6.16.5",
-    "@honeybadger-io/vue": "^6.1.21",
+    "@honeybadger-io/vue": "^6.2.22",
     "bootstrap": "^5.3.3",
     "lux-design-system": "^7.14.1",
     "papaparse": "^5.4.1",
