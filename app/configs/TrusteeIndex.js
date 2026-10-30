@@ -38,7 +38,7 @@ export default {
   header_title: '', // title for the site header (appears next to PUL logo)
   page_title: 'Trustee Index, 1746-2001', // title for page
   table_title: 'Browse Trustees', // title for table
-  description: `<p>Indexes the names of those who have served on the Princeton University Board of Trustees from 1746-2001. Contains dates and type of service, and Princeton class affiliation, if applicable, for each University trustee. Those trustees labeled as current were serving as of 2001.</p>`,
+  description: `<p>Indexes the names of those who have served on the Princeton University Board of Trustees from 1746-2001. Contains dates and type of service, and Princeton class affiliation, if applicable, for each University trustee. Those trustees labeled as current were serving as of 2001.</p><p>Please note: This index is not actively updated and may contain outdated or incorrect information. Nonetheless, it serves as a useful resource for locating historical information in our collections. If you have questions, please reach out to us through the <a href="https://library.princeton.edu/services/special-collections/ask-special-collections">Ask Special Collections form</a>.</p>`,
   data_sources:
     'https://docs.google.com/spreadsheets/d/e/2PACX-1vQI4uYn9QlDCTfc4CiHko25CvuqPSe8HRKRDKcuDLT2SS1JNYpjTiMe3PjvfFE-LR7Ea8bzwrVFPNgd/pub?gid=1480844741&single=true&output=csv'
 };

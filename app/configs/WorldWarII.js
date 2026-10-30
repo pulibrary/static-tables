@@ -46,7 +46,7 @@ export default {
   header_title: 'The Department of Special Collections',
   page_title: 'World War II Memorial Book',
   table_title: 'Browse Princeton Alumni Weekly Memorial',
-  description: `<p>Provides the name, date and place of death, class year, and rank and branch of service for each Princeton student or alumnus who died in service to his country during the Second World War.</p>`,
+  description: `<p>Provides the name, date and place of death, class year, and rank and branch of service for each Princeton student or alumnus who died in service to his country during the Second World War.</p><p>Please note: This index is not actively updated and may contain outdated or incorrect information. Nonetheless, it serves as a useful resource for locating historical information in our collections. If you have questions, please reach out to us through the <a href="https://library.princeton.edu/services/special-collections/ask-special-collections">Ask Special Collections form</a>.</p>`,
   data_sources:
     'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_PhGijlYPCZzz6Jo4KfC2g2QradwezOL4bX6atGiwtRgcY6eMoGosLZoep3N-x888GYE5uAxBShXc/pub?output=csv'
 };
