@@ -37,7 +37,7 @@
     "eslint-plugin-vuejs-accessibility": "^2.6.3",
     "happy-dom": "^21.0.4",
     "lint-staged": "^17.6.0",
-    "msw": "^2.3.0",
+    "msw": "^3.0.3",
     "prettier": "^3.9.9",
     "simple-git-hooks": "^2.11.1",
     "vitest": "^5.1.0",
