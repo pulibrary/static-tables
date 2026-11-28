@@ -19,7 +19,7 @@
   "dependencies": {
     "@honeybadger-io/js": "^6.16.5",
     "@honeybadger-io/vue": "^6.2.26",
-    "bootstrap": "^5.3.3",
+    "bootstrap": "^5.3.9",
     "lux-design-system": "^7.14.1",
     "papaparse": "^5.4.1",
     "vite": "^8.3.5",
